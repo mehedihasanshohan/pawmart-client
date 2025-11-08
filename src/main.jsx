@@ -8,12 +8,14 @@ import MainLayout from './Root/MainLayOut.jsx';
 import Home from './pages/Home.jsx';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import NotFound from './pages/NotFound.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <NotFound></NotFound>,
     children: [
       {index: true, element: <Home></Home>},
       {
