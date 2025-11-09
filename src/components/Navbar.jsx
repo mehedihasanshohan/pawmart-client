@@ -1,23 +1,23 @@
-// import { GoogleAuthProvider } from 'firebase/auth'
-// import React, { use} from 'react'
+import { GoogleAuthProvider } from 'firebase/auth'
+import React, { use} from 'react'
 import { Link, NavLink} from 'react-router'
-// import { AuthContext } from '../../context/AuthContext.';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import { AuthContext } from './../context/AuthContext';
 
 const Navbar = () => {
-  // const {user, signOutUser} = use(AuthContext);
-  // console.log(user);
+  const {user, signOutUser} = use(AuthContext);
+  console.log(user);
 
-  // const handleGoogleSignOut =() => {
-  //   signOutUser()
-  //   .then( ()=> {
-  //     toast.success('sign out successfully')
-  //   })
-  //   .catch(error => {
-  //     // console.log(error)
-  //     toast.error(error.message);
-  //   })
-  // }
+  const handleGoogleSignOut =() => {
+    signOutUser()
+    .then( ()=> {
+      toast.success('sign out successfully')
+    })
+    .catch(error => {
+      // console.log(error)
+      toast.error(error.message);
+    })
+  }
 
   return (
    <div className="navbar bg-base-100 shadow-sm  bg-linear-to-r from-teal-600 via-teal-700 to-teal-600">
@@ -31,10 +31,15 @@ const Navbar = () => {
         className="menu menu-md dropdown-content bg-base-400 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/services'>Pets & Supplies</NavLink></li>
-        <li><NavLink to='/my-listing'>Add Listing</NavLink></li>
-        <li><NavLink to='/my-listing'>My Listings</NavLink></li>
-        <li><NavLink to='/my-orders'>My Orders</NavLink></li>
-      </ul>
+        {
+          user &&
+          <div>
+            <li><NavLink to='/my-listing'>Add Listing</NavLink></li>
+            <li><NavLink to='/my-listing'>My Listings</NavLink></li>
+            <li><NavLink to='/my-orders'>My Orders</NavLink></li>
+          </div>
+        }
+        </ul>
     </div>
     <Link to='/' className="text-3xl font-semibold text-white ml-2 animate__animated animate__rollIn">
       <span className='text-amber-400 text-3xl font-semibold'>pawmart</span>
@@ -44,16 +49,19 @@ const Navbar = () => {
     <ul className="flex justify-center items-center gap-4 text-white  font-semibold text-2xl px-1">
       <li><NavLink to='/'>Home</NavLink></li>
       <li><NavLink to='/services'>Pets & Supplies</NavLink></li>
-      <li><NavLink to='/my-listing'>Add Listing</NavLink></li>
-      <li><NavLink to='/my-listing'>My Listings</NavLink></li>
-      <li><NavLink to='/my-orders'>My Orders</NavLink></li>
+      {
+          user &&
+          <div>
+            <li><NavLink to='/my-listing'>Add Listing</NavLink></li>
+            <li><NavLink to='/my-listing'>My Listings</NavLink></li>
+            <li><NavLink to='/my-orders'>My Orders</NavLink></li>
+          </div>
+        }
     </ul>
   </div>
 
   <div className="navbar-end text-white flex items-center gap-3 animate__animated animate__fadeInRight">
-    <Link to='/login' className='btn btn-accent'><button>Login</button></Link>
-    <Link to='/register' className='btn btn-info'>Register</Link>
-   {/* {user && (
+   {user && (
     <div className="tooltip tooltip-left" data-tip={user.displayName || "User"}>
       <img
         src={user.photoURL || "https://i.ibb.co.com/LzzpgV0z/icons8-person-94.png"}
@@ -85,7 +93,7 @@ const Navbar = () => {
       Register
     </NavLink>
    </div>
-  } */}
+  }
 </div>
 
 
