@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
@@ -8,17 +9,43 @@ import { TbCurrencyTaka } from "react-icons/tb";
 const CategoryFilteredPage = () => {
   const { category } = useParams();
   const [listings, setListings] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
+    setLoading(true);
     fetch('http://localhost:3000/listings')
       .then((res) => res.json())
-      .then((data) => setListings(data))
+      .then((data) => {
+        setListings(data);
+        setLoading(true);
+      })
       .catch((err) => console.error("Error fetching category data:", err));
   }, [category]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const search_text = e.target.search.value;
+    console.log(search_text);
+
+    fetch(`http://localhost:3000/search?search=${search_text}`)
+      .then(res => res.json())
+      .then(data => {
+         setListings(data)
+         setLoading(false)
+      })
+      .catch((err) => {
+        console.error("search error:", err);
+        setLoading(false)
+      });
+  }
+
+
 
   return (
     <section className="py-20 bg-linear-to-b from-cyan-50 to-teal-100 min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
+
         <div className="text-center mb-12">
           <h2 className="text-4xl font-extrabold text-gray-800 mb-3 tracking-tight">
              All Pets and Supplies
@@ -27,6 +54,26 @@ const CategoryFilteredPage = () => {
             Browse all available listings under <span className="font-medium text-teal-700">{category}</span>.
           </p>
         </div>
+
+
+
+        <form className="text-center mb-4" onSubmit={handleSearch}>
+          <label className="input">
+            <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                strokeWidth="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input type="search" name="search" required placeholder="Search" />
+          </label>
+        </form>
 
         {listings.length === 0 ? (
           <p className="text-center text-gray-500 text-lg">No listings found.</p>
