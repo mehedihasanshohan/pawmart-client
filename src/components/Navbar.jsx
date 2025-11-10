@@ -42,7 +42,7 @@ const Navbar = () => {
         </ul>
     </div>
     <Link to='/' className="text-3xl font-semibold text-white ml-2 animate__animated animate__rollIn">
-      <span className='text-amber-400 text-3xl font-semibold'>pawmart</span>
+      <span className='text-amber-400 shadow-2xl text-3xl font-semibold'>pawmart</span>
     </Link>
   </div>
   <div className="navbar-center hidden lg:flex animate__animated animate__fadeInLeft" >

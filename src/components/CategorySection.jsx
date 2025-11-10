@@ -32,7 +32,7 @@ const CategorySection = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-linear-to-b from-cyan-50 to-teal-100">
       <div className="max-w-6xl mx-auto text-center px-4">
         <h2 className="text-3xl font-bold mb-2 text-gray-800">
           Explore by Category
