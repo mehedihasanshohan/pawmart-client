@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import NotFound from './pages/NotFound.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
+import CategoryFilteredPage from './components/CategoryFilteredPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -26,7 +27,12 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: "/category-filtered-product/:category",
+        element: <CategoryFilteredPage></CategoryFilteredPage>
       }
+
     ]
   }
 ]);

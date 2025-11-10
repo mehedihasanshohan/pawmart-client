@@ -51,7 +51,7 @@ const Navbar = () => {
       <li><NavLink to='/services'>Pets & Supplies</NavLink></li>
       {
           user &&
-          <div>
+          <div className='flex gap-2'>
             <li><NavLink to='/my-listing'>Add Listing</NavLink></li>
             <li><NavLink to='/my-listing'>My Listings</NavLink></li>
             <li><NavLink to='/my-orders'>My Orders</NavLink></li>

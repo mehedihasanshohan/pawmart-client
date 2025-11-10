@@ -40,7 +40,6 @@ const Register = () => {
         console.log(result);
       })
 
-      
       .catch(error => toast.error(error.message));
   };
 
