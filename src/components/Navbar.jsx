@@ -46,12 +46,12 @@ const Navbar = () => {
     </Link>
   </div>
   <div className="navbar-center hidden lg:flex animate__animated animate__fadeInLeft" >
-    <ul className="flex justify-center items-center gap-4 text-white  font-semibold text-2xl px-1">
+    <ul data-aos="fade-left" className="flex justify-center items-center gap-6 text-white  font-semibold text-xl px-1">
       <li><NavLink to='/'>Home</NavLink></li>
-      <li><NavLink to='/services'>Pets & Supplies</NavLink></li>
+      <li><NavLink to='/listings'>Pets & Supplies</NavLink></li>
       {
           user &&
-          <div className='flex gap-2'>
+          <div className='flex gap-6'>
             <li><NavLink to='/my-listing'>Add Listing</NavLink></li>
             <li><NavLink to='/my-listing'>My Listings</NavLink></li>
             <li><NavLink to='/my-orders'>My Orders</NavLink></li>

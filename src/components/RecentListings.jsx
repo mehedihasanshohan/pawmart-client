@@ -99,6 +99,7 @@ const RecentListings = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {recentListings.map((item) => (
               <div
+                data-aos="zoom-out"
                 key={item._id}
                 className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all overflow-hidden group"
               >

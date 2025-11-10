@@ -13,6 +13,17 @@ import AuthProvider from './context/AuthProvider.jsx';
 import CategoryFilteredPage from './components/CategoryFilteredPage.jsx';
 import ListingDetails from './pages/ListingDetails.jsx';
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import MyListings from './pages/MyListings.jsx';
+
+AOS.init({
+  duration: 1000,
+  easing: "ease-in-out",
+  once: true,
+  mirror: false,
+});
+
 
 const router = createBrowserRouter([
   {
@@ -36,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/listing/:id",
         element: <ListingDetails></ListingDetails>,
+      },
+      {
+        path: "/listings",
+        element: <MyListings></MyListings>,
       }
 
 

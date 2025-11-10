@@ -34,7 +34,7 @@ const CategorySection = () => {
   return (
     <section className="py-16 bg-linear-to-b from-cyan-50 to-teal-100">
       <div className="max-w-6xl mx-auto text-center px-4">
-        <h2 className="text-3xl font-bold mb-2 text-gray-800">
+        <h2 data-aos="fade-right" className="text-3xl font-bold mb-2 text-gray-800">
           Explore by Category
         </h2>
         <p className="text-gray-500 mb-10">
@@ -44,6 +44,7 @@ const CategorySection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((cat, index) => (
             <div
+              data-aos="zoom-in"
               key={index}
               onClick={() => handleNavigate(cat.route)}
               className="relative cursor-pointer rounded-2xl overflow-hidden shadow-lg group"
