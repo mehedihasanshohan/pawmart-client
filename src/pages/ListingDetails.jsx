@@ -10,6 +10,7 @@ const ListingDetails = () => {
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [quantity, setQuantity] = useState(1); // for products
 
   useEffect(() => {
     fetch(`http://localhost:3000/listing/${id}`)
@@ -23,6 +24,11 @@ const ListingDetails = () => {
         setLoading(false);
       });
   }, [id]);
+
+  // scroll lock when modal is open
+  useEffect(() => {
+    document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+  }, [isModalOpen]);
 
   if (loading) {
     return (
@@ -139,10 +145,10 @@ const ListingDetails = () => {
 
 
     {isModalOpen && (
-  <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50 px-4">
+  <div className="fixed inset-0 bg-black/30 backdrop-blur-sm bg-opacity-40 flex justify-center items-center z-50 px-4">
     {/* Outer wrapper ensures scroll on small screens */}
     <div className="relative bg-white rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl p-6">
-      {/* Close button (top-right corner) */}
+      {/* Close button*/}
       <button
         onClick={() => setIsModalOpen(false)}
         className="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-2xl font-bold"
@@ -186,7 +192,7 @@ const ListingDetails = () => {
         {/* Buyer Name */}
         <div>
           <label className="block text-sm font-medium">Buyer Name</label>
-          <input type="text" value={user.name} readOnly className="input input-bordered w-full" />
+          <input type="text" value={user.displayName} readOnly className="input input-bordered w-full" />
         </div>
 
         {/* Email */}
