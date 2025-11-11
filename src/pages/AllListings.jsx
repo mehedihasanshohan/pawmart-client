@@ -6,10 +6,10 @@ import { MdLocationOn } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
 
 
-const CategoryFilteredPage = () => {
+const AllListings = () => {
   const { category } = useParams();
   const [listings, setListings] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
 
   useEffect(() => {
@@ -71,9 +71,18 @@ const CategoryFilteredPage = () => {
                 <path d="m21 21-4.3-4.3"></path>
               </g>
             </svg>
-            <input type="search" name="search" required placeholder="Search" />
+            <input type="search" name="search"  placeholder="Search" />
           </label>
+          <button className="btn btn-accent ml-2">Search</button>
         </form>
+
+        <div className="flex items-center justify-center gap-4 mb-4">
+          {/* <h2>Search by category:</h2> */}
+          <button className="btn btn-secondary">Pets</button>
+          <button className="btn btn-secondary">Pets Food</button>
+          <button className="btn btn-secondary">Accessories</button>
+          <button className="btn btn-secondary">Pet care products</button>
+        </div>
 
         {listings.length === 0 ? (
           <p className="text-center text-gray-500 text-lg">No listings found.</p>
@@ -130,4 +139,4 @@ const CategoryFilteredPage = () => {
   );
 };
 
-export default CategoryFilteredPage;
+export default AllListings;

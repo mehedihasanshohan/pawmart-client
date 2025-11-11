@@ -12,10 +12,11 @@ import NotFound from './pages/NotFound.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
 import CategoryFilteredPage from './components/CategoryFilteredPage.jsx';
 import ListingDetails from './pages/ListingDetails.jsx';
-
+import AllListings from './pages/AllListings';
 import AOS from "aos";
 import "aos/dist/aos.css";
-import MyListings from './pages/MyListings.jsx';
+import AddListing from './pages/AddListing.jsx';
+import PrivateRoute from './routes/PrivateRoutes.jsx';
 
 AOS.init({
   duration: 1000,
@@ -50,7 +51,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/listings",
-        element: <MyListings></MyListings>,
+        element: <AllListings></AllListings>,
+      },
+      {
+        path: '/addListing',
+        element: <AddListing></AddListing>
       }
 
 

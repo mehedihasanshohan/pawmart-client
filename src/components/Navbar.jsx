@@ -6,7 +6,7 @@ import { AuthContext } from './../context/AuthContext';
 
 const Navbar = () => {
   const {user, signOutUser} = use(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleGoogleSignOut =() => {
     signOutUser()
@@ -20,7 +20,7 @@ const Navbar = () => {
   }
 
   return (
-   <div className="navbar bg-base-100 shadow-sm  bg-linear-to-r from-teal-600 via-teal-700 to-teal-600">
+   <div  className="navbar  bg-base-100 shadow-sm  bg-linear-to-r from-teal-600 via-teal-700 to-teal-600">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-info lg:hidden">
@@ -52,7 +52,7 @@ const Navbar = () => {
       {
           user &&
           <div className='flex gap-6'>
-            <li><NavLink to='/my-listing'>Add Listing</NavLink></li>
+            <li><NavLink to='/addListing'>Add Listing</NavLink></li>
             <li><NavLink to='/my-listing'>My Listings</NavLink></li>
             <li><NavLink to='/my-orders'>My Orders</NavLink></li>
           </div>
