@@ -76,13 +76,6 @@ const AllListings = () => {
           <button className="btn btn-accent ml-2">Search</button>
         </form>
 
-        <div className="flex items-center justify-center gap-4 mb-4">
-          {/* <h2>Search by category:</h2> */}
-          <button className="btn btn-secondary">Pets</button>
-          <button className="btn btn-secondary">Pets Food</button>
-          <button className="btn btn-secondary">Accessories</button>
-          <button className="btn btn-secondary">Pet care products</button>
-        </div>
 
         {listings.length === 0 ? (
           <p className="text-center text-gray-500 text-lg">No listings found.</p>
