@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router";
 import { AuthContext } from "./context/AuthContext";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const MyListings = () => {
   const { user } = useContext(AuthContext);
@@ -74,8 +74,8 @@ const MyListings = () => {
         <td>{listing.location}</td>
         <td><img src={listing.image} className="h-8 w-8 rounded-full" alt="" /></td>
         <td>{listing.email}</td>
-        <td><button className="btn btn-error">Delete</button></td>
-        <td><button className="btn btn-info">Update</button></td>
+        <td><button onClick={() => handleDelete(listing._id)} className="btn btn-error">Delete</button></td>
+        <td><button onClick={()=> handleUpdate(listing._id)} className="btn btn-info">Update</button></td>
       </tr>)
       }
     </tbody>
