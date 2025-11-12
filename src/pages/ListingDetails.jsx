@@ -10,7 +10,6 @@ const ListingDetails = () => {
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [quantity, setQuantity] = useState(1); // for products
 
   useEffect(() => {
     fetch(`http://localhost:3000/listing/${id}`)
@@ -33,7 +32,7 @@ const ListingDetails = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center text-lg text-gray-500">
-        Loading listing details...
+        <span class="loading loading-spinner text-info"></span>
       </div>
     );
   }
@@ -126,14 +125,14 @@ const ListingDetails = () => {
             {/* Back Button */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="mt-6 w-full bg-emerald-600 text-white py-3 rounded-lg font-semibold hover:bg-emerald-700 transition"
+              className="mt-6 w-full bg-emerald-600 text-white py-3 rounded-lg font-semibold hover:bg-emerald-700 transition cursor-pointer"
             >
               Adopt / Order Now
             </button>
 
             <button
               onClick={() => window.history.back()}
-              className="mt-8 w-full bg-teal-600 text-white py-3 rounded-lg font-semibold hover:bg-teal-700 transition"
+              className="mt-8 w-full bg-teal-600 cursor-pointer text-white py-3 rounded-lg font-semibold hover:bg-teal-700 transition"
             >
               ← Back to Listings
             </button>
@@ -164,7 +163,7 @@ const ListingDetails = () => {
         onSubmit={(e) => {
           e.preventDefault();
           const order = {
-            buyerName: user.name,
+            buyerName: user.displayName,
             email: user.email,
             listingId: listing._id,
             listingName: listing.name,
@@ -183,7 +182,7 @@ const ListingDetails = () => {
           })
             .then((res) => res.json())
             .then(() => {
-              alert("✅ Order placed successfully!");
+              alert("Order placed successfully!");
               setIsModalOpen(false);
             });
         }}
@@ -251,13 +250,13 @@ const ListingDetails = () => {
 
         {/* Buttons */}
         <div className="flex justify-between mt-6">
-          <button type="submit" className="btn btn-success w-1/2 mr-2">
+          <button type="submit" className="btn btn-success w-1/2 mr-2 cursor-pointer">
             Submit Order
           </button>
           <button
             type="button"
             onClick={() => setIsModalOpen(false)}
-            className="btn btn-error w-1/2"
+            className="btn btn-error w-1/2 cursor-pointer"
           >
             Cancel
           </button>

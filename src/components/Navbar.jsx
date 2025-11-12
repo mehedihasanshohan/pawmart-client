@@ -6,7 +6,6 @@ import { AuthContext } from './../context/AuthContext';
 
 const Navbar = () => {
   const {user, signOutUser} = use(AuthContext);
-  // console.log(user);
 
   const handleGoogleSignOut =() => {
     signOutUser()
@@ -14,7 +13,6 @@ const Navbar = () => {
       toast.success('sign out successfully')
     })
     .catch(error => {
-      // console.log(error)
       toast.error(error.message);
     })
   }

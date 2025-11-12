@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import { Typewriter } from 'react-simple-typewriter'
+import { Tooltip } from "react-tooltip";
 
 const categories = [
   {
@@ -34,9 +36,23 @@ const CategorySection = () => {
   return (
     <section className="py-16 bg-linear-to-b from-cyan-50 to-teal-100">
       <div className="max-w-6xl mx-auto text-center px-4">
-        <h2 data-aos="fade-right" className="text-3xl font-bold mb-2 text-gray-800">
-          Explore by Category
-        </h2>
+       <h2
+        className="text-3xl font-bold text-center mb-2 text-gray-800 items-center gap-2"
+      >
+        Explore by{" "}
+        <span className="text-teal-600">
+          <Typewriter
+            words={["Pets", "Pet Food", "Accessories", "Pet Care Products"]}
+            loop={true}
+            cursor
+            cursorStyle="|"
+            typeSpeed={90}
+            deleteSpeed={60}
+            delaySpeed={1500}
+          />
+        </span>
+      </h2>
+
         <p className="text-gray-500 mb-10">
           Find everything your furry friend needs — from adoption to care!
         </p>
@@ -46,6 +62,8 @@ const CategorySection = () => {
             <div
               data-aos="zoom-in"
               key={index}
+              data-tooltip-id={`tooltip-${index}`}
+              data-tooltip-content={`Click to explore ${cat.name}`}
               onClick={() => handleNavigate(cat.route)}
               className="relative cursor-pointer rounded-2xl overflow-hidden shadow-lg group"
             >
@@ -61,6 +79,15 @@ const CategorySection = () => {
             </div>
           ))}
         </div>
+          {categories.map((_, index) => (
+          <Tooltip
+            key={index}
+            id={`tooltip-${index}`}
+            place="top"
+            variant="dark"
+            style={{ zIndex: 9999 }}
+          />
+        ))}
       </div>
     </section>
   );
