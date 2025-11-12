@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
+import jsPDF from "jspdf";
+import autoTable from 'jspdf-autotable';
+
 
 const MyOrders = () => {
   const {user} = useContext(AuthContext);
@@ -14,6 +17,42 @@ const MyOrders = () => {
       .then(data => setOrders(data))
     }
   }, [user?.email])
+
+    const handleDownload = () => {
+    const doc = new jsPDF();
+
+    // Table columns
+    const columns = [
+      "Product Name",
+      "Buyer Name",
+      "Price",
+      "Quantity",
+      "Address",
+      "Date",
+      "Phone"
+    ];
+
+    // Table rows
+    const rows = orders.map(order => [
+      order.productName,
+      order.buyerName,
+      order.price,
+      order.quantity,
+      order.address,
+      order.date,
+      order.phone
+    ]);
+
+    // Add AutoTable
+    autoTable(doc, {
+    head: [columns],
+    body: rows,
+  });
+
+    // Save PDF
+    doc.save("my-orders.pdf");
+    };
+
 
   return (
     <div className=''>
@@ -49,6 +88,15 @@ const MyOrders = () => {
       }
     </tbody>
   </table>
+</div>
+
+<div className="flex justify-center mt-6 mb-4">
+  <button
+    onClick={handleDownload}
+    className="btn btn-primary"
+  >
+    Download Report
+  </button>
 </div>
 
     </div>

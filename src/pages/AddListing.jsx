@@ -72,16 +72,16 @@ const AddListing = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 mt-6 bg-white shadow-lg rounded-lg">
+    <div className="max-w-2xl mx-auto p-6 mt- shadow-lg rounded-lg">
       <Toaster />
-      <h2 className="text-2xl font-semibold mb-4 text-center text-gray-80">
+      <h2 className="text-2xl font-semibold mb-4 text-center">
         Add New Listing
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Product/Pet Name */}
         <div>
-          <label className="block font-medium text-gray-700 ">
+          <label className="block font-medium">
             Product/Pet Name
           </label>
           <input
@@ -96,7 +96,7 @@ const AddListing = () => {
 
         {/* Category */}
         <div>
-          <label className="block font-medium text-gray-700 ">
+          <label className="block font-medium ">
             Category
           </label>
           <select
@@ -116,7 +116,7 @@ const AddListing = () => {
 
         {/* Price */}
         <div>
-          <label className="block font-medium text-gray-700 ">
+          <label className="block font-medium ">
             Price
           </label>
           <input
@@ -133,7 +133,7 @@ const AddListing = () => {
 
         {/* Location */}
         <div>
-          <label className="block font-medium text-gray-700">
+          <label className="block font-medium ">
             Location
           </label>
           <input
@@ -148,7 +148,7 @@ const AddListing = () => {
 
         {/* Description */}
         <div>
-          <label className="block font-medium text-gray-700">
+          <label className="block font-medium">
             Description
           </label>
           <textarea
@@ -163,7 +163,7 @@ const AddListing = () => {
 
         {/* Image URL */}
         <div>
-          <label className="block font-medium text-gray-700">
+          <label className="block font-medium ">
             Image URL
           </label>
           <input
@@ -178,7 +178,7 @@ const AddListing = () => {
 
         {/* Pick Up Date */}
         <div>
-          <label className="block font-medium text-gray-700 ">
+          <label className="block font-medium ">
             Pick Up Date
           </label>
           <input
@@ -193,20 +193,20 @@ const AddListing = () => {
 
         {/* Email */}
         <div>
-          <label className="block font-medium text-gray-700">
+          <label className="block font-medium ">
             Email
           </label>
           <input
             type="email"
             value={user?.email || ""}
             readOnly
-            className="w-full border p-2 rounded bg-gray-100 "
+            className="w-full border p-2 rounded"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full py-2 rounded bg-accent hover:bg-info"
         >
           Add Listing
         </button>
