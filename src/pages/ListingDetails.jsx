@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { MdLocationOn } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { AuthContext } from './../context/AuthContext';
+import { toast } from "react-toastify";
 
 const ListingDetails = () => {
   const {user} = useContext(AuthContext)
@@ -32,7 +33,7 @@ const ListingDetails = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center text-lg text-gray-500">
-        <span class="loading loading-spinner text-info"></span>
+        <span className="loading loading-spinner text-info"></span>
       </div>
     );
   }
@@ -46,16 +47,16 @@ const ListingDetails = () => {
   }
 
   return (
-    <section className="py-20 bg-linear-to-b from-cyan-50 to-teal-100 min-h-screen">
+    <section className="py-20  min-h-screen">
       <div className="max-w-5xl mx-auto px-6">
         {/* Title */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-gray-800 mb-2 tracking-tight">
+          <h2 className="text-4xl font-extrabold text-accent mb-2 tracking-tight">
             {listing.name}
           </h2>
-          <p className="text-gray-600">
+          <p className="">
             Category:{" "}
-            <span className="text-teal-700 font-semibold">
+            <span className=" text-secondary font-semibold">
               {listing.category}
             </span>
           </p>
@@ -81,40 +82,40 @@ const ListingDetails = () => {
                   <p className="text-amber-600">Free for Adoption</p>
                 ) : (
                   <>
-                    <TbCurrencyTaka className="text-2xl" />
-                    <p>{listing.Price}</p>
+                    <TbCurrencyTaka className="text-info text-2xl" />
+                    <p className="text-info">{listing.Price}</p>
                   </>
                 )}
               </div>
 
               {/* Location */}
-              <div className="flex items-center gap-2 text-gray-700 font-medium">
-                <MdLocationOn className="text-teal-600 text-xl" />
+              <div className="flex items-center gap-2 text-primary font-medium">
+                <MdLocationOn className="text-primary text-xl" />
                 <span>{listing.location}</span>
               </div>
 
               {/* Description */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              <div className="text-success">
+                <h3 className="text-lg font-semibold mb-2">
                   Description:
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="leading-relaxed">
                   {listing.description}
                 </p>
               </div>
 
               {/* Email Contact */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              <div className="text-secondary">
+                <h3 className="text-lg font-semibold mb-2">
                   Contact Email:
                 </h3>
-                <p className="text-gray-700 font-medium">
+                <p className="font-medium">
                   {listing.email || "Not provided"}
                 </p>
               </div>
 
               {/* Date */}
-              <p className="text-sm text-gray-500">
+              <p className="text-sm">
                 Added on:{" "}
                 {listing.date
                   ? new Date(listing.date).toLocaleDateString()
@@ -125,14 +126,14 @@ const ListingDetails = () => {
             {/* Back Button */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="mt-6 w-full bg-emerald-600 text-white py-3 rounded-lg font-semibold hover:bg-emerald-700 transition cursor-pointer"
+              className="mt-6 w-full bg-accent hover:bg-info py-3 rounded-lg font-semibold transition cursor-pointer"
             >
               Adopt / Order Now
             </button>
 
             <button
               onClick={() => window.history.back()}
-              className="mt-8 w-full bg-teal-600 cursor-pointer text-white py-3 rounded-lg font-semibold hover:bg-teal-700 transition"
+              className="mt-8 w-full bg-info hover:bg-accent cursor-pointer py-3 rounded-lg font-semibold transition"
             >
               ← Back to Listings
             </button>
@@ -146,16 +147,16 @@ const ListingDetails = () => {
     {isModalOpen && (
   <div className="fixed inset-0 bg-black/30 backdrop-blur-sm bg-opacity-40 flex justify-center items-center z-50 px-4">
     {/* Outer wrapper ensures scroll on small screens */}
-    <div className="relative bg-white rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl p-6">
+    <div className="relative rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl p-6">
       {/* Close button*/}
       <button
         onClick={() => setIsModalOpen(false)}
-        className="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-2xl font-bold"
+        className="absolute top-3 right-3 text-2xl font-bold"
       >
         ×
       </button>
 
-      <h2 className="text-2xl font-bold mb-4 text-teal-700 text-center">
+      <h2 className="text-2xl font-bold mb-4 text-center">
         Place Your Order
       </h2>
 
@@ -163,15 +164,15 @@ const ListingDetails = () => {
         onSubmit={(e) => {
           e.preventDefault();
           const order = {
+            productId: listing._id.toString(),
+            productName: listing.name,
             buyerName: user.displayName,
             email: user.email,
-            listingId: listing._id,
-            listingName: listing.name,
             quantity: listing.category === "Pets" ? 1 : e.target.quantity.value,
             price: listing.Price,
             address: e.target.address.value,
-            date: e.target.date.value,
             phone: e.target.phone.value,
+            date: e.target.date.value,
             notes: e.target.notes.value,
           };
 
@@ -182,7 +183,7 @@ const ListingDetails = () => {
           })
             .then((res) => res.json())
             .then(() => {
-              alert("Order placed successfully!");
+              toast.success("Order placed successfully!");
               setIsModalOpen(false);
             });
         }}

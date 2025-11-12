@@ -5,8 +5,8 @@ import { Link } from 'react-router'
 const Footer = () => {
   return (
     <footer
-      data-aos="zoom-in-up"
-      className="footer sm:footer-horizontal text-white p-10 bg-linear-to-r from-teal-600 via-teal-700 to-teal-600"
+      data-aos="zoom-out"
+      className="footer sm:footer-horizontal bg-base-100  p-10"
     >
       <aside>
         <Link to="/" className="flex items-center gap-2 mb-3">
@@ -37,7 +37,7 @@ const Footer = () => {
 
       <nav>
         <h6 className="footer-title">Follow Us</h6>
-        <div className="flex gap-4 mt-2">
+        <div className="flex gap-4 mt-2 text-info">
           <Link to="/" aria-label="Facebook"><FaFacebook className="w-6 h-6 hover:text-blue-400" /></Link>
           <Link to="/" aria-label="GitHub"><FaGithub className="w-6 h-6 hover:text-gray-300" /></Link>
           <Link to="/" aria-label="LinkedIn"><FaLinkedin className="w-6 h-6 hover:text-blue-300" /></Link>

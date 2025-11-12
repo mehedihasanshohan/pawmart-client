@@ -1,11 +1,23 @@
 import { GoogleAuthProvider } from 'firebase/auth'
-import React, { use} from 'react'
+import React, { useContext, useState} from 'react'
 import { Link, NavLink} from 'react-router'
 import { toast } from 'react-toastify';
 import { AuthContext } from './../context/AuthContext';
+import { FaRegMoon } from 'react-icons/fa';
+import { PiSunBold } from "react-icons/pi";
 
 const Navbar = () => {
-  const {user, signOutUser} = use(AuthContext);
+  const {user, signOutUser} = useContext(AuthContext);
+  // eslint-disable-next-line no-unused-vars
+  const [isLight, setIsLight] = useState(true);
+
+ const handletheme = () => {
+  const html = document.querySelector("html");
+  const newTheme = isLight ? "dark" : "light";
+  html.setAttribute("data-theme", newTheme);
+  setIsLight(!isLight);
+};
+
 
   const handleGoogleSignOut =() => {
     signOutUser()
@@ -32,15 +44,15 @@ const Navbar = () => {
         {
           user &&
           <div>
-            <li><NavLink to='/my-listing'>Add Listing</NavLink></li>
-            <li><NavLink to='/my-listing'>My Listings</NavLink></li>
-            <li><NavLink to='/my-orders'>My Orders</NavLink></li>
+            <li><NavLink to='/addListing'>Add Listing</NavLink></li>
+            <li><NavLink to='/myListing'>My Listings</NavLink></li>
+            <li><NavLink to='/myOrders'>My Orders</NavLink></li>
           </div>
         }
         </ul>
     </div>
     <Link to='/' className="text-3xl font-semibold text-white ml-2 animate__animated animate__rollIn">
-      <span className='text-amber-400 shadow-2xl text-3xl font-semibold'>pawmart</span>
+      <span className='text-amber-400 text-3xl font-semibold'>pawmart</span>
     </Link>
   </div>
   <div className="navbar-center hidden lg:flex animate__animated animate__fadeInLeft" >
@@ -51,14 +63,19 @@ const Navbar = () => {
           user &&
           <div className='flex gap-6'>
             <li><NavLink to='/addListing'>Add Listing</NavLink></li>
-            <li><NavLink to='/my-listing'>My Listings</NavLink></li>
-            <li><NavLink to='/my-orders'>My Orders</NavLink></li>
+            <li><NavLink to='/myListing'>My Listings</NavLink></li>
+            <li><NavLink to='/myOrders'>My Orders</NavLink></li>
           </div>
         }
     </ul>
   </div>
 
   <div className="navbar-end text-white flex items-center gap-3 animate__animated animate__fadeInRight">
+   <button onClick={handletheme}>
+    {
+      isLight? <FaRegMoon className='text-xl'></FaRegMoon> : <PiSunBold className='text-xl'></PiSunBold>
+    }
+   </button>
    {user && (
     <div className="tooltip tooltip-left" data-tip={user.displayName || "User"}>
       <img

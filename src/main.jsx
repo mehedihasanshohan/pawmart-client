@@ -17,6 +17,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import AddListing from './pages/AddListing.jsx';
 import PrivateRoute from './routes/PrivateRoutes.jsx';
+import { ToastContainer } from 'react-toastify';
+
 
 AOS.init({
   duration: 1000,
@@ -67,6 +69,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
+      <ToastContainer />
     </AuthProvider>
   </StrictMode>
 )
