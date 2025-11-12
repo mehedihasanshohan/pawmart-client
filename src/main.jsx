@@ -20,6 +20,7 @@ import PrivateRoute from './routes/PrivateRoutes.jsx';
 import { ToastContainer } from 'react-toastify';
 import MyOrders from './pages/MyOrders.jsx';
 import MyListings from './MyListings.jsx';
+import UpdateListing from './pages/UpdateListing.jsx';
 
 
 AOS.init({
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: '/myOrders',
         element: <MyOrders></MyOrders>
+      },
+      {
+        path: '/update-listing/:id',
+        element: <UpdateListing></UpdateListing>
       }
 
 
