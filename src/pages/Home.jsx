@@ -6,7 +6,7 @@ import RecentListings from '../components/RecentListings'
 
 const Home = () => {
   return (
-    <div>
+    <div className='overflow-x-hidden'>
       <Slider></Slider>
       <Adopt></Adopt>
       <CategorySection></CategorySection>

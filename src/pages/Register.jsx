@@ -66,8 +66,9 @@ const Register = () => {
 
       setSuccess('Registration successful!')
       toast.success(`Welcome ${result.user.displayName}`)
-      e.target.reset() // reset form
-      navigate('/') // navigate after registration
+      e.target.reset()
+      setLoading(false)
+      navigate('/')
     } catch (err) {
       setError(err.message)
     } finally {

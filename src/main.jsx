@@ -16,12 +16,11 @@ import AllListings from './pages/AllListings';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import AddListing from './pages/AddListing.jsx';
-import PrivateRoute from './routes/PrivateRoutes.jsx';
 import { ToastContainer } from 'react-toastify';
 import MyOrders from './pages/MyOrders.jsx';
 import MyListings from './MyListings.jsx';
 import UpdateListing from './pages/UpdateListing.jsx';
-
+import PrivateRoute from './routes/PrivateRoute.jsx';
 
 AOS.init({
   duration: 1000,
@@ -52,7 +51,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/listing/:id",
-        element: <ListingDetails></ListingDetails>,
+        element:  <PrivateRoute>
+                   <ListingDetails></ListingDetails>
+                  </PrivateRoute>
       },
       {
         path: "/listings",

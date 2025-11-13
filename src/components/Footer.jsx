@@ -5,7 +5,6 @@ import { Link } from 'react-router'
 const Footer = () => {
   return (
     <footer
-      data-aos="zoom-out"
       className="footer sm:footer-horizontal bg-base-100 shadow-2xl  p-10"
     >
       <aside>
