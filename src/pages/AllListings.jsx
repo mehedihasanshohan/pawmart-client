@@ -18,9 +18,12 @@ const AllListings = () => {
       .then((res) => res.json())
       .then((data) => {
         setListings(data);
-        setLoading(true);
+        setLoading(false);
       })
-      .catch((err) => console.error("Error fetching category data:", err));
+      .catch((err) => {
+        console.error("Error fetching category data:", err)
+        setLoading(false)
+      });
   }, [category]);
 
   const handleSearch = (e) => {
@@ -38,6 +41,15 @@ const AllListings = () => {
         console.error("search error:", err);
         setLoading(false)
       });
+  }
+
+
+   if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <span className="loading loading-spinner loading-lg text-accent"></span>
+      </div>
+    );
   }
 
 

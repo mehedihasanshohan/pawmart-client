@@ -5,12 +5,16 @@ import toast, { Toaster } from "react-hot-toast";
 const UpdateListing = () => {
   const { id } = useParams();
   const [listing, setListing] = useState({});
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:3000/listing/${id}`)
       .then(res => res.json())
-      .then(data => setListing(data));
+      .then(data => {
+        setListing(data)
+        setLoading(false);
+      });
   }, [id]);
 
   const handleUpdate = (e) => {
@@ -28,6 +32,14 @@ const UpdateListing = () => {
       })
       .catch(() => toast.error("Error updating listing"));
   };
+
+   if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <span className="loading loading-spinner loading-lg text-accent"></span>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-md mx-auto mt-10">

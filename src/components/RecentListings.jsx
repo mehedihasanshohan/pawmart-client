@@ -73,13 +73,29 @@ import { TbCurrencyTaka } from "react-icons/tb";
 
 const RecentListings = () => {
   const [recentListings, setRecentListings] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch("http://localhost:3000/listings/recent")
       .then((res) => res.json())
-      .then((data) => setRecentListings(data))
-      .catch((err) => console.error("Error fetching recent listings:", err));
+      .then((data) => {
+        setRecentListings(data)
+        setLoading(false)
+      })
+      .catch((err) => {
+        console.error("Error fetching recent listings:", err)
+        setLoading(false);
+      });
   }, []);
+
+   if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <span className="loading loading-spinner loading-lg text-accent"></span>
+      </div>
+    );
+  }
 
   return (
     <section className="py-20 bg-base-100">

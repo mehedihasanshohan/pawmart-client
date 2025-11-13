@@ -8,13 +8,14 @@ import autoTable from 'jspdf-autotable';
 const MyOrders = () => {
   const {user} = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
-  console.log(orders);
 
   useEffect(()=>{
     if(user?.email){
       fetch(`http://localhost:3000/myorders?email=${user.email}`)
       .then(res => res.json())
-      .then(data => setOrders(data))
+      .then(data => {
+        setOrders(data)
+      })
     }
   }, [user?.email])
 
