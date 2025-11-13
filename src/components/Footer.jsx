@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer
       data-aos="zoom-out"
-      className="footer sm:footer-horizontal bg-base-100  p-10"
+      className="footer sm:footer-horizontal bg-base-100 shadow-2xl  p-10"
     >
       <aside>
         <Link to="/" className="flex items-center gap-2 mb-3">

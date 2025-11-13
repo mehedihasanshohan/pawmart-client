@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  reload,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut} from 'firebase/auth'
@@ -36,7 +37,10 @@ const AuthProvider = ({children}) => {
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async(currentUser) => {
+      if(currentUser){
+        await reload(currentUser)
+      }
       console.log(currentUser)
       setUser(currentUser)
       setLoading(false);

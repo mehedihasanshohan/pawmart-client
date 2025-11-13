@@ -8,7 +8,7 @@ const Slider = () => {
         {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
           {/* <img src="https://i.ibb.co.com/rKmgQsxj/w1.jpg" className="w-full h-128 object-cover" /> */}
-          <img src="https://i.ibb.co.com/HDqDt2Xv/w2.jpg" className="w-full h-128 object-cover" />
+          <img src="https://i.ibb.co.com/HfMKMZDM/adorable-portrait-pets-surrounded-by-flowers.jpg" className="w-full h-128 object-cover" />
 
 
           {/* Text overlay */}
@@ -28,7 +28,7 @@ const Slider = () => {
         {/* Slide 2 */}
         <div id="slide2" className="carousel-item relative w-full">
           {/* <img src="https://i.ibb.co.com/HDqDt2Xv/w2.jpg" className="w-full h-128 object-cover" /> */}
-          <img src="https://i.ibb.co.com/rKmgQsxj/w1.jpg" className="w-full h-128 object-cover" />
+          <img src="https://i.ibb.co.com/RVYJPzn/view-cats-dogs-showing-friendship.jpg" className="w-full h-128 object-cover" />
 
           <div className="absolute inset-0 flex flex-col justify-start items-center text-white bg-black/40 pt-28">
             <h2 className="text-4xl font-bold mb-3 pt-4">Adopt, Don't Shop — Give a Pet a Home.</h2>

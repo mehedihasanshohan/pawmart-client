@@ -51,9 +51,12 @@ const Navbar = () => {
         }
         </ul>
     </div>
-    <Link to='/' className="text-3xl font-semibold  ml-2 animate__animated animate__rollIn">
-      <span className=' text-3xl font-semibold'>pawmart</span>
-    </Link>
+    <div className='flex items-center justify-center gap-2'>
+      <img src="https://i.ibb.co.com/ZRxFkpTv/dog-13748949.png" className='w-6 h-6 ml-2' alt="" />
+      <Link to='/' className="text-3xl font-semibold  ml-2 animate__animated animate__rollIn">
+       <span className='text-orange-400 text-3xl font-semibold'>pawmart</span>
+      </Link>
+    </div>
   </div>
   <div className="navbar-center hidden lg:flex animate__animated animate__fadeInLeft" >
     <ul data-aos="fade-left" className="flex justify-center items-center gap-6   font-semibold text-xl px-1">

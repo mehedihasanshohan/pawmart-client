@@ -1,52 +1,79 @@
-import { GoogleAuthProvider } from 'firebase/auth';
-import { useContext, useState } from 'react';
-import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import { Link, useNavigate } from 'react-router';
-import { toast } from 'react-toastify';
-import { AuthContext } from '../context/AuthContext';
+import { useContext, useState } from 'react'
+import { BsEye, BsEyeSlash } from 'react-icons/bs'
+import { Link, useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
+import { AuthContext } from '../context/AuthContext'
+import { updateProfile } from 'firebase/auth'
 
 const Register = () => {
-  const { createUser, signInWithGoogle } = useContext(AuthContext);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
+  const { createUser, signInWithGoogle } = useContext(AuthContext)
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
-  const handleGoogleSignIn = () => {
-    signInWithGoogle(GoogleAuthProvider)
-      .then(result => {
-        toast.success(`Welcome ${result.user.displayName || result.user.email}`);
-        navigate('/');
-      })
-      .catch(error => {
-        toast.error(error.message);
-      });
-  };
-
-  const handleRegister = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-
-    setError("");
-    setSuccess("");
-
-    if (password.length < 6) return setError("Password must be at least 6 characters long.");
-    if (!/[A-Z]/.test(password)) return setError("Password must contain at least one uppercase letter.");
-    if (!/[a-z]/.test(password)) return setError("Password must contain at least one lowercase letter.");
-
-    createUser(email, password)
-      .then(result => {
-        console.log(result);
-      })
-
-      .catch(error => toast.error(error.message));
-  };
-
+  // Toggle password visibility
   const handleTogglePasswordShow = (e) => {
-    e.preventDefault();
-    setShowPassword(!showPassword);
-  };
+    e.preventDefault()
+    setShowPassword(!showPassword)
+  }
+
+  // Google Sign-In
+  const handleGoogleSignIn = async () => {
+    setError('')
+    setSuccess('')
+    setLoading(true)
+    try {
+      const result = await signInWithGoogle()
+      const userName = result?.user?.displayName || result?.user?.email
+      setSuccess(`Login successful! Welcome ${userName}`)
+      toast.success(`Welcome ${userName}`)
+      navigate('/') // navigate after login
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  // Email/Password Registration
+  const handleRegister = async (e) => {
+    e.preventDefault()
+    setError('')
+    setSuccess('')
+    setLoading(true)
+
+    const name = e.target.name.value.trim()
+    const photoURL = e.target.photo.value.trim()
+    const email = e.target.email.value.trim()
+    const password = e.target.password.value
+
+    // Password validation
+    if (password.length < 6) return setError('Password must be at least 6 characters long.')
+    if (!/[A-Z]/.test(password)) return setError('Password must contain at least one uppercase letter.')
+    if (!/[a-z]/.test(password)) return setError('Password must contain at least one lowercase letter.')
+    if (!/\d/.test(password)) return setError('Password must contain at least one number.')
+
+    try {
+      const result = await createUser(email, password)
+
+      // ✅ Firebase v9 modular updateProfile
+      await updateProfile(result.user, {
+        displayName: name,
+        photoURL: photoURL
+      })
+
+      setSuccess('Registration successful!')
+      toast.success(`Welcome ${result.user.displayName}`)
+      e.target.reset() // reset form
+      navigate('/') // navigate after registration
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <div className="card bg-base-100 m-auto mt-8 mb-16 w-full max-w-sm shadow-xl">
@@ -70,18 +97,26 @@ const Register = () => {
                 required
               />
               <button
+                type="button"
                 onClick={handleTogglePasswordShow}
+                aria-label="Toggle Password Visibility"
                 className="btn btn-xs top-2 right-6 absolute"
               >
                 {showPassword ? <BsEyeSlash /> : <BsEye />}
               </button>
             </div>
-            <button className="btn btn-info mt-4 w-full">Register</button>
+
+            <button className="btn btn-info mt-4 w-full" disabled={loading}>
+              {loading ? 'Registering...' : 'Register'}
+            </button>
+
             <div className="text-center font-semibold text-md mt-2"><p>or</p></div>
+
             <button
               type="button"
               onClick={handleGoogleSignIn}
-              className="btn btn-accent w-full"
+              className="btn btn-accent w-full mt-2"
+              disabled={loading}
             >
               Sign in with Google
             </button>
@@ -93,11 +128,13 @@ const Register = () => {
 
         <p className="mt-4 text-center">
           Already have an account?
-          <Link className="text-green-600 font-semibold ml-1" to="/login">Login</Link>
+          <Link className="text-green-600 font-semibold ml-1" to="/login">
+            Login
+          </Link>
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register

@@ -1,132 +1,143 @@
-// import { GoogleAuthProvider} from 'firebase/auth';
-import {  use, useState } from 'react'
-import { BsEye } from 'react-icons/bs';
-import { BsEyeSlash } from 'react-icons/bs';
-import { Link, useLocation, useNavigate } from 'react-router';
-// import auth from '../../firebase/firebase.config';
-// import google from '/google.png'
-// import { AuthContext } from '../../context/AuthContext.';
-import { toast } from 'react-toastify';
+import { useContext, useState } from 'react'
+import { BsEye, BsEyeSlash } from 'react-icons/bs'
+import { Link, useLocation, useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
+import { AuthContext } from '../context/AuthContext'
 
 const Login = () => {
-  // const {logInUser, signInWithGoogle} = use(AuthContext);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const navigate = useNavigate();
-  const location = useLocation();
-  // const googleprovider = new GoogleAuthProvider()
+  const { logInUser, signInWithGoogle } = useContext(AuthContext)
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [email, setEmail] = useState('')
+  const navigate = useNavigate()
+  const location = useLocation()
 
-  // const handleGoogleSignIn = () => {
-  //   signInWithGoogle()
-  //    .then(result => {
-  //       setSuccess(`Login successful! Welcome ${result.user.displayName || result.user.email}`);
-  //       navigate(location.state || '/');
-  //    })
-  //    .catch(error => {
-  //       setError(error.message)
-  //    })
-  // }
+  // Toggle password visibility
+  const handleTogglePasswordShow = (e) => {
+    e.preventDefault()
+    setShowPassword(!showPassword)
+  }
 
-  // const handleLogin = e => {
-  //   e.preventDefault();
-  //   const email = e.target.email.value;
-  //   const password = e.target.password.value;
-  //   console.log(email, password);
+  // Handle Google Sign-In
+  const handleGoogleSignIn = async () => {
+    setError('')
+    setSuccess('')
+    setLoading(true)
+    try {
+      const result = await signInWithGoogle()
+      setSuccess(`Login successful! Welcome ${result.user.displayName || result.user.email}`)
+      toast.success(`Welcome ${result.user.displayName || result.user.email}`)
+      navigate(location.state?.from || '/')
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setLoading(false)
+    }
+  }
 
-  //   setError("");
-  //   setSuccess("");
+  // Handle email/password login
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    setError('')
+    setSuccess('')
+    setLoading(true)
 
-  //   if (password.length < 6) {
-  //     setError("Password must be at least 6 characters long.");
-  //     return;
-  //   }
-  //   if (!/[A-Z]/.test(password)) {
-  //     setError("Password must contain at least one uppercase letter.");
-  //     return;
-  //   }
-  //   if (!/[a-z]/.test(password)) {
-  //     setError("Password must contain at least one lowercase letter.");
-  //     return;
-  //   }
+    const password = e.target.password.value
+    const emailInput = e.target.email.value.trim()
 
-    // signInWithEmailAndPassword(auth, email, password)
-  //   logInUser(email, password)
-  //     .then(result => {
-  //       console.log(result.user);
-  //       setSuccess('login successfully')
-  //       navigate(location.state || '/')
-  //       toast.success('log in successfully completed')
-  //     })
-  //     .catch(error => {
-  //       console.log(error)
-  //       setError(error.message)
-  //     })
-  // }
+    // Optional: simple password validation
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long.')
+      setLoading(false)
+      return
+    }
 
-  // const handleTogglePasswordShow = e => {
-  //   e.preventDefault();
-  //   setShowPassword(!showPassword);
-  // }
-
-
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const result = await logInUser(emailInput, password)
+      setSuccess('Login successful!')
+      toast.success('Login successfully completed')
+      navigate(location.state?.from || '/')
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
-    <div className="animate__animated animate__bounceIn card bg-base-100 m-auto mt-16 mb-16 w-full max-w-sm shrink-0 shadow-2xl">
+    <div className="animate__animated animate__bounceIn card bg-base-100 m-auto mt-16 mb-16 w-full max-w-sm shadow-2xl">
       <div className="card-body">
-      <h1 className="text-5xl font-bold">Login now!</h1>
-        <form>
+        <h1 className="text-5xl font-bold">Login now!</h1>
+        <form onSubmit={handleLogin}>
           <fieldset className="fieldset">
-          <label className="label">Email</label>
-          <input
-            type="email"
-            name='email'
-            autoComplete='off'
-            className="input"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label className="label">Password</label>
+            <label className="label">Email</label>
+            <input
+              type="email"
+              name="email"
+              autoComplete="off"
+              className="input"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-          <div className='relative'>
-            <input type={showPassword ? 'text': 'password'}
-               name='password' autoComplete='off'
-               className="input" placeholder="Password" />
+            <label className="label">Password</label>
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                autoComplete="off"
+                className="input"
+                placeholder="Password"
+                required
+              />
+              <button
+                type="button"
+                onClick={handleTogglePasswordShow}
+                aria-label="Toggle Password Visibility"
+                className="btn btn-xs top-2 right-6 absolute"
+              >
+                {showPassword ? <BsEyeSlash /> : <BsEye />}
+              </button>
+            </div>
+
+            <div className="mt-2">
+              <Link to="/forget-password" state={{ email }}>
+                Forgot password?
+              </Link>
+            </div>
+
+            <button className="btn btn-info mt-4 w-full" disabled={loading}>
+              {loading ? 'Logging in...' : 'Login'}
+            </button>
+
+            <div className="text-center font-semibold text-md mt-2"><p>or</p></div>
+
             <button
-               type='button'
-              //  onClick={handleTogglePasswordShow}
-               className='btn btn-xs top-2 right-6 absolute'>
-                {/* { showPassword ? <BsEyeSlash></BsEyeSlash> : <BsEye></BsEye>} */}
-               </button>
-          </div>
-
-          <div>
-            <Link
-                to='/forget-password'
-                state={{ email: email }}
+              type="button"
+              onClick={handleGoogleSignIn}
+              className="btn btn-accent w-full mt-2"
+              disabled={loading}
             >
-             Forgot password?
-            </Link>
-          </div>
-          <button className="btn btn-info mt-4">Login</button>
-          <div className='text-center font-semibold text-md'><p>or</p></div>
-          <button type='button'
-          // onClick={handleGoogleSignIn}
-          className="btn btn-accent">
-            {/* <img src={google} className='h-4 w-4' alt="" /> Google */}
-          </button>
-        </fieldset>
-        {
-          success && (
-          <p className='text-green-600'>{success}</p>
-        )}
-        {
-          error && <p className='text-red-500'>{error}</p>
-        }
+              {/* You can add Google icon here */}
+              Sign in with Google
+            </button>
+          </fieldset>
+
+          {success && <p className="text-green-600 mt-2">{success}</p>}
+          {error && <p className="text-red-500 mt-2">{error}</p>}
         </form>
-        <p>New to our website?<Link className='text-green-600 font-semibold ml-1' to='/register'>Register</Link> </p>
+
+        <p className="mt-4">
+          New to our website?
+          <Link className="text-green-600 font-semibold ml-1" to="/register">
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   )

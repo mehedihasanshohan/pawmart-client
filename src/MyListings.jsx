@@ -45,7 +45,7 @@ const MyListings = () => {
 
 
   return (
-    <div className=''>
+    <div className='min-h-screen'>
       <h2 className='text-center text-2xl font-bold mt-6 mb-4'>My Listings</h2>
       <div className="overflow-x-auto">
   <table className="table">
