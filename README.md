@@ -1,16 +1,64 @@
-# React + Vite
+# 🐾 PawMart — Pet Adoption & Supply Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [https://paw-mart.web.app](#)
+**Server API:** [https://pawmart-server.vercel.app](#)
+**Client Repo:** [https://github.com/yourusername/pawmart-client](#)
+**Server Repo:** [https://github.com/yourusername/pawmart-server](#)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🐶 About PawMart
 
-## React Compiler
+**PawMart** is a community-driven web application that connects **pet owners, breeders, and animal lovers**.
+Users can list pets for **adoption** or **sell pet supplies** such as food, toys, and accessories.
+Buyers and adopters can browse listings, view details, and directly place adoption or purchase orders.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> “Adopt, Don’t Shop — Give a Pet a Loving Home.” ❤️
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Key Features
+
+- 🔐 **Firebase Authentication** (Email/Password + Google Login)
+- 🐕 **Add Listing** — List pets or products for adoption/sale
+- 📋 **My Listings** — Manage, update, or delete your own listings
+- 💌 **My Orders** — View and download your adoption/purchase history as PDF
+- 🛍️ **Category Filtering & Search** — Easily browse by Pets, Food, Accessories, or Care Products
+- 📄 **Listing Details Page** — View full product/pet details & place orders
+- 🎨 **Dark/Light Mode Toggle** — Tailwind-based theme switcher
+- 🚀 **Fully Responsive** — Optimized for mobile, tablet, and desktop
+- 🔔 **react-hot-toast Alerts** for success/error notifications
+- ⚙️ **Dynamic Routing & Page Titles** via React Router DOM
+- 🕓 **Loading Spinners** during API calls for smooth UX
+
+---
+
+## 📂 Pages Overview
+
+| Page | Type | Description |
+|------|------|--------------|
+| **Home** | Public | Hero banner, categories, recent listings, awareness, and hero sections |
+| **Pets & Supplies** | Public | All listings with search and category filter |
+| **Listing Details** | Private | Full details + Order modal form |
+| **Add Listing** | Private | Form to add new pet/product listing |
+| **My Listings** | Private | User’s listings with edit & delete options |
+| **My Orders** | Private | All user orders with “Download Report” (PDF) |
+| **Login / Register** | Public | Firebase Authentication system |
+| **404 Page** | Public | Custom page without navbar/footer |
+
+---
+
+## 🗃️ Database Collections (MongoDB)
+
+### 🐕 `listings`
+```json
+{
+  "name": "Golden Retriever Puppy",
+  "category": "Pets",
+  "price": 0,
+  "location": "Dhaka",
+  "description": "Friendly 2-month-old puppy available for adoption.",
+  "image": "https://example.com/golden.jpg",
+  "email": "owner@gmail.com",
+  "date": "2025-10-27"
+}
