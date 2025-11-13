@@ -44,7 +44,7 @@ const AddListing = () => {
 
 
     try {
-      const res = await fetch("http://localhost:3000/addlisting", {
+      const res = await fetch("https://pawmart-api-server-kappa.vercel.app/addlisting", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dataToSend)
@@ -106,11 +106,11 @@ const AddListing = () => {
             className="w-full border p-2 rounded"
             required
           >
-            <option value="">Select Category</option>
-            <option value="Pets">Pets</option>
-            <option value="Food">Food</option>
-            <option value="Accessories">Accessories</option>
-            <option value="Care Products">Care Products</option>
+            <option className="text-base-100 bg-accent" value="">Select Category</option>
+            <option className="text-base-100 bg-accent" value="Pets">Pets</option>
+            <option className="text-base-100 bg-accent" value="Food">Food</option>
+            <option className="text-base-100 bg-accent" value="Accessories">Accessories</option>
+            <option className="text-base-100 bg-accent" value="Care Products">Care Products</option>
           </select>
         </div>
 
@@ -206,7 +206,7 @@ const AddListing = () => {
 
         <button
           type="submit"
-          className="w-full py-2 rounded bg-accent hover:bg-info"
+          className="w-full py-2 rounded cursor-pointer bg-accent hover:bg-info"
         >
           Add Listing
         </button>

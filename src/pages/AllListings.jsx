@@ -14,7 +14,7 @@ const AllListings = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:3000/listings')
+    fetch('https://pawmart-api-server-kappa.vercel.app/listings')
       .then((res) => res.json())
       .then((data) => {
         setListings(data);
@@ -31,7 +31,7 @@ const AllListings = () => {
     const search_text = e.target.search.value;
     console.log(search_text);
 
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(`https://pawmart-api-server-kappa.vercel.app/search?search=${search_text}`)
       .then(res => res.json())
       .then(data => {
          setListings(data)

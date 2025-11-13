@@ -58,7 +58,7 @@ const Register = () => {
     try {
       const result = await createUser(email, password)
 
-      // ✅ Firebase v9 modular updateProfile
+      //  Firebase v9 modular updateProfile
       await updateProfile(result.user, {
         displayName: name,
         photoURL: photoURL

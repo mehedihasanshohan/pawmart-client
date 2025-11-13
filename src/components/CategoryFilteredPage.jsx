@@ -103,11 +103,11 @@ import { TbCurrencyTaka } from "react-icons/tb";
 const CategoryFilteredPage = () => {
   const { category } = useParams();
   const [listings, setListings] = useState([]);
-  const [loading, setLoading] = useState(true); // 👈 spinner state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true); // নতুন ক্যাটাগরি ফেচ শুরু হলে আবার লোডিং দেখাবে
-    fetch(`http://localhost:3000/listings/category/${category}`)
+    setLoading(true);
+    fetch(`https://pawmart-api-server-kappa.vercel.app/listings/category/${category}`)
       .then((res) => res.json())
       .then((data) => {
         setListings(data);
@@ -118,6 +118,10 @@ const CategoryFilteredPage = () => {
         setLoading(false);
       });
   }, [category]);
+
+  if(loading){
+    <div>Loading...</div>
+  }
 
   return (
     <section className="py-20 min-h-screen">
@@ -132,12 +136,7 @@ const CategoryFilteredPage = () => {
           </p>
         </div>
 
-        {/* 👇 Spinner Section */}
-        {loading ? (
-          <div className="flex justify-center items-center h-60">
-            <span className="loading loading-spinner loading-lg text-accent"></span>
-          </div>
-        ) : listings.length === 0 ? (
+        { listings.length === 0 ? (
           <p className="text-center text-lg">No listings found.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">

@@ -77,7 +77,7 @@ const RecentListings = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3000/listings/recent")
+    fetch("https://pawmart-api-server-kappa.vercel.app/listings/recent")
       .then((res) => res.json())
       .then((data) => {
         setRecentListings(data)

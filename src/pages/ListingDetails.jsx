@@ -13,7 +13,7 @@ const ListingDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/listing/${id}`)
+    fetch(`https://pawmart-api-server-kappa.vercel.app/listing/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setListing(data);
@@ -176,7 +176,7 @@ const ListingDetails = () => {
             notes: e.target.notes.value,
           };
 
-          fetch("http://localhost:3000/orders", {
+          fetch("https://pawmart-api-server-kappa.vercel.app/orders", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(order),

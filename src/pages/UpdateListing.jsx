@@ -9,7 +9,7 @@ const UpdateListing = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/listing/${id}`)
+    fetch(`https://pawmart-api-server-kappa.vercel.app/listing/${id}`)
       .then(res => res.json())
       .then(data => {
         setListing(data)
@@ -19,7 +19,7 @@ const UpdateListing = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3000/mylistings/${id}`, {
+    fetch(`https://pawmart-api-server-kappa.vercel.app/mylistings/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(listing),
