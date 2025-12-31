@@ -1,9 +1,9 @@
 # 🐾 PawMart — Pet Adoption & Supply Portal
 
-**Live Site:** [https://paw-mart.web.app](#)
-**Server API:** [https://pawmart-server.vercel.app](#)
-**Client Repo:** [https://github.com/yourusername/pawmart-client](#)
-**Server Repo:** [https://github.com/yourusername/pawmart-server](#)
+**Live Site:** https://paw-mart.web.app <br/>
+**Server API:** https://pawmart-server.vercel.app <br/>
+**Client Repo:** https://github.com/yourusername/pawmart-client <br/>
+**Server Repo:** https://github.com/yourusername/pawmart-server
 
 ---
 
@@ -48,21 +48,6 @@ Buyers and adopters can browse listings, view details, and directly place adopti
 
 ---
 
-## 🗃️ Database Collections (MongoDB)
-
-### 🐕 `listings`
-```json
-{
-  "name": "Golden Retriever Puppy",
-  "category": "Pets",
-  "price": 0,
-  "location": "Dhaka",
-  "description": "Friendly 2-month-old puppy available for adoption.",
-  "image": "https://example.com/golden.jpg",
-  "email": "owner@gmail.com",
-  "date": "2025-10-27"
-}
-
 ## **Dependencies**
 - axios
 - react-router-dom
@@ -77,10 +62,8 @@ Buyers and adopters can browse listings, view details, and directly place adopti
 
 ## **Setup & Installation**
 
-1. Clone the repository:
-
 ```bash
-git clone https://github.com/mehedihasanshohan/contestverse.git
-cd contestverse
+git clone https://github.com/mehedihasanshohan/pawmart-client.git
+cd pawmart-client
 npm install
 npm run dev
