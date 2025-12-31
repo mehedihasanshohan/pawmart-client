@@ -62,3 +62,25 @@ Buyers and adopters can browse listings, view details, and directly place adopti
   "email": "owner@gmail.com",
   "date": "2025-10-27"
 }
+
+## **Dependencies**
+- axios
+- react-router-dom
+- react-hook-form
+- sweetalert2
+- react-hot-toast
+- framer-motion
+- lucide-react
+- react-datepicker
+
+---
+
+## **Setup & Installation**
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/mehedihasanshohan/contestverse.git
+cd contestverse
+npm install
+npm run dev
