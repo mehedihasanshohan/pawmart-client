@@ -1,9 +1,8 @@
 # 🐾 PawMart — Pet Adoption & Supply Portal
 
 **Live Site:** https://paw-mart.web.app <br/>
-**Server API:** https://pawmart-server.vercel.app <br/>
-**Client Repo:** https://github.com/yourusername/pawmart-client <br/>
-**Server Repo:** https://github.com/yourusername/pawmart-server
+**Server API:** https://app.netlify.com/projects/pawmart-fullstack/overview <br/>
+**Client Repo:** https://github.com/mehedihasanshohan/pawmart-client <br/>
 
 ---
 
