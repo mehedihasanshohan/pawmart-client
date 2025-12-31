@@ -33,6 +33,21 @@ Buyers and adopters can browse listings, view details, and directly place adopti
 
 ---
 
+## **Tech Stack**
+
+- **React** (frontend framework)
+- **TailwindCSS & DaisyUI** (UI/Styling)
+- **React Router DOM** (Routing)
+- **TanStack Query** (Data fetching & caching)
+- **React Hook Form** (Form handling)
+- **Axios** (API requests)
+- **JWT** (Authentication)
+- **Sweet Alert / Toast** (Notifications)
+- **LocalStorage** (Theme preference persistence)
+- **Vercel  & Netlify** (Hosting)
+
+---
+
 ## 📂 Pages Overview
 
 | Page | Type | Description |
