@@ -1,7 +1,7 @@
 # 🐾 PawMart — Pet Adoption & Supply Portal
 
 **Live Site:** https://paw-mart.web.app <br/>
-**Server API:** https://app.netlify.com/projects/pawmart-fullstack/overview <br/>
+**Server API:** https://pawmart-fullstack.netlify.app/ <br/>
 **Client Repo:** https://github.com/mehedihasanshohan/pawmart-client <br/>
 
 ---
