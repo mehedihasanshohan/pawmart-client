@@ -4,6 +4,8 @@ import Adopt from '../components/Adopt'
 import CategorySection from '../components/CategorySection'
 import RecentListings from '../components/RecentListings'
 import StateSection from '../components/StateSection'
+import HowItWorks from './../components/HowItWorks';
+import FAQ from './../components/FAQ';
 
 
 const Home = () => {
@@ -14,6 +16,8 @@ const Home = () => {
       <CategorySection></CategorySection>
       <RecentListings></RecentListings>
       <StateSection></StateSection>
+      <HowItWorks></HowItWorks>
+      <FAQ></FAQ>
     </div>
   )
 }
