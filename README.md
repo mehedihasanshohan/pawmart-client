@@ -1,9 +1,8 @@
 # 🐾 PawMart — Pet Adoption & Supply Portal
 
-**Live Site:** [https://paw-mart.web.app](#)
-**Server API:** [https://pawmart-server.vercel.app](#)
-**Client Repo:** [https://github.com/yourusername/pawmart-client](#)
-**Server Repo:** [https://github.com/yourusername/pawmart-server](#)
+**Live Site:** https://paw-mart.web.app <br/>
+**Server API:** https://pawmart-fullstack.netlify.app/ <br/>
+**Client Repo:** https://github.com/mehedihasanshohan/pawmart-client <br/>
 
 ---
 
@@ -33,6 +32,21 @@ Buyers and adopters can browse listings, view details, and directly place adopti
 
 ---
 
+## **Tech Stack**
+
+- **React** (frontend framework)
+- **TailwindCSS & DaisyUI** (UI/Styling)
+- **React Router DOM** (Routing)
+- **TanStack Query** (Data fetching & caching)
+- **React Hook Form** (Form handling)
+- **Axios** (API requests)
+- **JWT** (Authentication)
+- **Sweet Alert / Toast** (Notifications)
+- **LocalStorage** (Theme preference persistence)
+- **Vercel  & Netlify** (Hosting)
+
+---
+
 ## 📂 Pages Overview
 
 | Page | Type | Description |
@@ -48,17 +62,22 @@ Buyers and adopters can browse listings, view details, and directly place adopti
 
 ---
 
-## 🗃️ Database Collections (MongoDB)
+## **Dependencies**
+- axios
+- react-router-dom
+- react-hook-form
+- sweetalert2
+- react-hot-toast
+- framer-motion
+- lucide-react
+- react-datepicker
 
-### 🐕 `listings`
-```json
-{
-  "name": "Golden Retriever Puppy",
-  "category": "Pets",
-  "price": 0,
-  "location": "Dhaka",
-  "description": "Friendly 2-month-old puppy available for adoption.",
-  "image": "https://example.com/golden.jpg",
-  "email": "owner@gmail.com",
-  "date": "2025-10-27"
-}
+---
+
+## **Setup & Installation**
+
+```bash
+git clone https://github.com/mehedihasanshohan/pawmart-client.git
+cd pawmart-client
+npm install
+npm run dev
