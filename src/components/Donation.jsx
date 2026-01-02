@@ -1,5 +1,10 @@
-
 import { FaBone, FaSyringe, FaHome, FaHeart } from "react-icons/fa";
+import treat from "/pet-food.png";
+import health from "/veterinary1.png";
+import home from "/dog-house1.png";
+
+
+
 
 export default function Donation() {
 
@@ -9,7 +14,7 @@ export default function Donation() {
       amount: 10,
       title: "Treat a Friend",
       impact: "Provides 1 week of nutritious meals for a shelter pet.",
-      icon: <FaBone />,
+      icon: treat,
       color: "from-sky-300 to-sky-800",
     },
     {
@@ -17,7 +22,7 @@ export default function Donation() {
       amount: 50,
       title: "Health Hero",
       impact: "Covers essential vaccinations and a medical check-up.",
-      icon: <FaSyringe />,
+      icon: health,
       color: "from-blue-400 to-blue-500",
       popular: true,
     },
@@ -26,7 +31,7 @@ export default function Donation() {
       amount: 150,
       title: "Forever Home",
       impact: "Supports rescue operations and shelter maintenance.",
-      icon: <FaHome />,
+      icon: home,
       color: "from-purple-400 to-purple-500",
     },
   ];
@@ -60,9 +65,9 @@ export default function Donation() {
                 </span>
               )}
 
-              <div className={`w-16 h-16 rounded-2xl bg-linear-to-br ${option.color} flex items-center justify-center text-3xl text-white mb-6 shadow-inner`}>
-                {option.icon}
-              </div>
+              <img className={`w-16 h-16 rounded-2xl bg-linear-to-br ${option.color} flex items-center justify-center text-3xl text-white mb-6 shadow-inner`}
+                src={option.icon}
+              />
 
               <h3 className="text-3xl font-bold mb-2">${option.amount}</h3>
               <h4 className="text-lg font-semibold opacity-80 mb-4">{option.title}</h4>
