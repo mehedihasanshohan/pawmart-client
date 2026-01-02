@@ -3,6 +3,8 @@ import Slider from '../components/Slider'
 import Adopt from '../components/Adopt'
 import CategorySection from '../components/CategorySection'
 import RecentListings from '../components/RecentListings'
+import StateSection from '../components/StateSection'
+
 
 const Home = () => {
   return (
@@ -11,6 +13,7 @@ const Home = () => {
       <Adopt></Adopt>
       <CategorySection></CategorySection>
       <RecentListings></RecentListings>
+      <StateSection></StateSection>
     </div>
   )
 }
