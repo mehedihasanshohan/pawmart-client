@@ -1,27 +1,77 @@
+import React from "react";
+import { FaSearch, FaHandshake, FaHome, FaStethoscope } from "react-icons/fa";
+
 export default function HowItWorks() {
   const steps = [
-    { title: "Search", desc: "Find your perfect match from our verified listings.", color: "bg-blue-100 text-blue-600" },
-    { title: "Meet", desc: "Schedule a visit to bond with your future pet.", color: "bg-orange-100 text-orange-600" },
-    { title: "Adopt", desc: "Complete the process and take your new friend home.", color: "bg-green-100 text-green-600" },
+    {
+      title: "Search Your Best Friend",
+      desc: "Browse our verified listings and find your perfect pet match with ease.",
+      icon: <FaSearch />,
+      accent: "teal"
+    },
+    {
+      title: "Medical & Safety Check",
+      desc: "We ensure every pet is vaccinated and healthy before the meeting.",
+      icon: <FaStethoscope />,
+    },
+    {
+      title: "Bonding & Meeting",
+      desc: "Connect with current owners and spend time getting to know your new friend.",
+      icon: <FaHandshake />,
+      accent: "orange"
+    },
+    {
+      title: "Adopt & Celebrate",
+      desc: "Complete the simple process and welcome a new soul to your family.",
+      icon: <FaHome />,
+      accent: "blue"
+    },
+
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-slate-900 mb-4 font-serif italic">How to Adopt?</h2>
-        <p className="text-slate-500 mb-16">Your journey to a new best friend starts here</p>
+    <section className="py-24 bg-base-200 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid md:grid-cols-3 gap-12 relative">
-          {/* Connector Line (Desktop Only) */}
-          <div className="hidden md:block absolute top-1/4 left-0 w-full h-0.5 bg-slate-100 -z-10"></div>
+        {/* Simple & Bold Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4">
+            How It Works?
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+          {/* Connector Line for Desktop */}
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-4 border-dashed border-gray-300 z-0 -translate-y-12"></div>
 
           {steps.map((step, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <div className={`w-16 h-16 ${step.color} rounded-full flex items-center justify-center text-2xl font-bold mb-6 ring-8 ring-white shadow-lg`}>
+            <div
+              key={index}
+              data-aos="fade-up"
+              className="relative z-10 group bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-b-8 border-transparent hover:border-teal-600"
+            >
+              {/* Step Counter */}
+              <div className="absolute -top-6 left-10 w-12 h-12 bg-slate-800 text-white rounded-xl flex items-center justify-center font-black text-xl shadow-xl group-hover:bg-teal-600 transition-colors">
                 {index + 1}
               </div>
-              <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
+
+              {/* Icon Section */}
+              <div className="w-20 h-20 bg-base-200 rounded-3xl flex items-center justify-center text-4xl text-teal-600 mb-8 mt-4 group-hover:scale-110 transition-transform duration-500 shadow-inner">
+                {step.icon}
+              </div>
+
+              {/* Text Section */}
+              <h3 className="text-2xl font-bold mb-4 text-slate-800 tracking-tight leading-tight">
+                {step.title}
+              </h3>
+              <p className="text-slate-500 leading-relaxed">
+                {step.desc}
+              </p>
+
+              {/* Hover Effect Bar */}
+              <div className="mt-8 flex items-center gap-2 text-teal-600 font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                Simple Process <div className="h-1 w-10 bg-teal-600"></div>
+              </div>
             </div>
           ))}
         </div>

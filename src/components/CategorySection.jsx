@@ -34,10 +34,10 @@ const CategorySection = () => {
   };
 
   return (
-    <section className="py-16 bg-base-100">
-      <div className="max-w-6xl mx-auto text-center px-4">
+    <section className="py-16 bg-base-200">
+      <div className="max-w-7xl mx-auto text-center px-4">
        <h2
-        className="text-3xl font-bold text-center mb-2 items-center gap-2"
+        className="text-3xl font-bold text-center mb-4 items-center gap-2"
       >
         Explore by{" "}
         <span className="text-teal-600">
@@ -53,7 +53,7 @@ const CategorySection = () => {
         </span>
       </h2>
 
-        <p className=" mb-12">
+        <p className="italic mb-8">
           Find everything your furry friend needs — from adoption to care!
         </p>
 
@@ -73,7 +73,7 @@ const CategorySection = () => {
                 className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-500"></div>
-              <h3 className="absolute bottom-6 left-1/2 -translate-x-1/2 text-lg font-semibold bg-base-100 px-4 py-2 rounded-full backdrop-blur-sm">
+              <h3 className="absolute bottom-6 left-1/2 -translate-x-1/2 text-lg font-semibold bg-base-200 px-4 py-2 rounded-full backdrop-blur-sm">
                 {cat.name}
               </h3>
             </div>
