@@ -7,6 +7,7 @@ import StateSection from '../components/StateSection'
 import HowItWorks from './../components/HowItWorks';
 import FAQ from './../components/FAQ';
 import Donation from './../components/Donation';
+import SuccessStories from './../components/SuccessStories';
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <Adopt></Adopt>
       <CategorySection></CategorySection>
       <RecentListings></RecentListings>
+      <SuccessStories></SuccessStories>
       <StateSection></StateSection>
       <HowItWorks></HowItWorks>
       <FAQ></FAQ>
