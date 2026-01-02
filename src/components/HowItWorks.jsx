@@ -2,6 +2,7 @@ import React from "react";
 import { FaSearch, FaHandshake, FaHome, FaStethoscope } from "react-icons/fa";
 
 export default function HowItWorks() {
+
   const steps = [
     {
       title: "Search Your Best Friend",
@@ -30,25 +31,21 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-24 bg-base-200 overflow-hidden">
+    <section className="py-24 bg-base-200 text-base-content overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-
-        {/* Simple & Bold Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-4">
             How It Works?
           </h2>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          {/* Connector Line for Desktop */}
           <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-4 border-dashed border-gray-300 z-0 -translate-y-12"></div>
 
           {steps.map((step, index) => (
             <div
               key={index}
               data-aos="fade-up"
-              className="relative z-10 group bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-b-8 border-transparent hover:border-teal-600"
+              className="relative z-10 group bg-base-100 p-10 rounded-3xl shadow- hover:shadow-md transition-all duration-500 border-b-8 border-transparent hover:border-teal-600"
             >
               {/* Step Counter */}
               <div className="absolute -top-6 left-10 w-12 h-12 bg-slate-800 text-white rounded-xl flex items-center justify-center font-black text-xl shadow-xl group-hover:bg-teal-600 transition-colors">
@@ -61,10 +58,10 @@ export default function HowItWorks() {
               </div>
 
               {/* Text Section */}
-              <h3 className="text-2xl font-bold mb-4 text-slate-800 tracking-tight leading-tight">
+              <h3 className="text-xl font-bold mb-4">
                 {step.title}
               </h3>
-              <p className="text-slate-500 leading-relaxed">
+              <p className="opacity-70 leading-relaxed">
                 {step.desc}
               </p>
 

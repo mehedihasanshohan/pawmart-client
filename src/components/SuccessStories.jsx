@@ -62,18 +62,18 @@ const stories = [
 
 export default function SuccessStories() {
   return (
-    <section className="py-24 bg-base-200 overflow-hidden">
+    <section className="py-24 bg-base-200 text-base-content overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">
             Happy <span className="text-teal-600">Tail-Wagging</span> Stories
           </h2>
-          <p className="italic mb-8">Witness the transformation of our furry heroes</p>
+          <p className="opacity-70 italic mb-8">Witness the transformation of our furry heroes</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {stories.map((item) => (
-            <div key={item.id} className="group bg-white rounded-xl p-8 transition-all hover:scale-102 hover:shadow-md border border-transparent">
+            <div key={item.id} className="group bg-base-100 rounded-xl p-8 transition-all hover:scale-102 hover:shadow-md border border-transparent">
 
               {/* Image Comparison Container */}
               <div className="flex gap-4 mb-8">
@@ -93,19 +93,19 @@ export default function SuccessStories() {
               {/* Story Content */}
               <div className="relative pt-6">
                 <FaQuoteLeft className="absolute -top-2 -left-2 text-base-100 text-5xl" />
-                <h3 className="text-2xl font-bold text-teal-600 mb-3 mt-2 flex items-center gap-2">
+                <h3 className="text-xl font-bold mb-3 mt-2 flex items-center gap-2">
                   {item.name}'s Journey <FaArrowRight className="text-sm text-teal-600" />
                 </h3>
-                <p className="mb-6 text-slate-800 italic">
+                <p className="mb-6 opacity-80 italic">
                   "{item.story}"
                 </p>
 
                 <div className="flex items-center justify-between border-t pt-6">
                   <div>
-                    <p className="text-xs  uppercase font-bold text-slate-800 tracking-widest">Adopted By</p>
+                    <p className="text-xs uppercase font-bold tracking-widest">Adopted By</p>
                     <p className="font-semibold text-teal-600 ">{item.adoptedBy}</p>
                   </div>
-                  <button className="text-xs font-semibold text-slate-500 uppercase tracking-tighter hover:text-teal-600 transition-colors">
+                  <button className="text-xs font-semibold opacity-60 uppercase tracking-tighter hover:text-teal-600 transition-colors">
                     Full Story +
                   </button>
                 </div>
