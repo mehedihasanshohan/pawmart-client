@@ -6,6 +6,7 @@ import RecentListings from '../components/RecentListings'
 import StateSection from '../components/StateSection'
 import HowItWorks from './../components/HowItWorks';
 import FAQ from './../components/FAQ';
+import Donation from './../components/Donation';
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
       <StateSection></StateSection>
       <HowItWorks></HowItWorks>
       <FAQ></FAQ>
+      <Donation></Donation>
     </div>
   )
 }
