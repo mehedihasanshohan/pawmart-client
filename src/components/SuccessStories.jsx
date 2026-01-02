@@ -1,37 +1,10 @@
 import { FaQuoteLeft, FaArrowRight } from "react-icons/fa";
 
-// const stories = [
-//   {
-//     id: 1,
-//     name: "Buddy",
-//     beforeImg: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=300&h=400&fit=crop", // Placeholder image
-//     afterImg: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=300&h=400&fit=crop", // Placeholder image
-//     story: "Buddy was found abandoned in the rain. Now he lives in a mansion with a loving family!",
-//     adoptedBy: "The Rahman Family"
-//   },
-//   {
-//     id: 2,
-//     name: "Luna",
-//     beforeImg: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=300&h=400&fit=crop",
-//     afterImg: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=300&h=400&fit=crop",
-//     story: "Luna was a shy stray kitten. Today she is a playful queen of her forever home.",
-//     adoptedBy: "Sarah & John"
-//   },
-//   {
-//     id: 3,
-//     name: "Max",
-//     beforeImg: "https://images.unsplash.com/photo-1599443015574-be5fe8a05783?q=80&w=300&h=400&fit=crop",
-//     afterImg: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=300&h=400&fit=crop",
-//     story: "Max had a broken leg and a broken spirit. With surgery and love, he's now a marathon runner!",
-//     adoptedBy: "The Khan Family"
-//   }
-// ];
 
 const stories = [
   {
     id: 1,
     name: "Buddy",
-    // Buddy: Akdom eka r koshter chhobi vs Happy chhobi
     beforeImg: "https://images.unsplash.com/photo-1599443015574-be5fe8a05783?q=80&w=300&h=400&fit=crop",
     afterImg: "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=300&h=400&fit=crop",
     story: "Buddy was found abandoned in the rain. Now he lives in a mansion with a loving family!",
@@ -40,7 +13,6 @@ const stories = [
   {
     id: 2,
     name: "Luna",
-    // Luna: Osahay ekta beral chana vs King size luxury-te thaka beral
     beforeImg: "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?q=80&w=300&h=400&fit=crop",
     afterImg: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=300&h=400&fit=crop",
     story: "Luna was a shy stray kitten. Today she is a playful queen of her forever home.",
@@ -49,7 +21,6 @@ const stories = [
   {
     id: 3,
     name: "Max",
-    // Max: Dirty/Sad looking dog vs Groomed and happy dog
     beforeImg: "https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=300&h=400&fit=crop",
     afterImg: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=300&h=400&fit=crop",
     story: "Max had a broken leg and a broken spirit. With surgery and love, he's now a marathon runner!",

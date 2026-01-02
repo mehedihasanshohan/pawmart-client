@@ -14,14 +14,14 @@ const Home = () => {
   return (
     <div className='overflow-x-hidden'>
       <Slider></Slider>
-      <Adopt></Adopt>
       <CategorySection></CategorySection>
       <RecentListings></RecentListings>
       <SuccessStories></SuccessStories>
-      <StateSection></StateSection>
       <HowItWorks></HowItWorks>
-      <FAQ></FAQ>
+      <StateSection></StateSection>
+      <Adopt></Adopt>
       <Donation></Donation>
+      <FAQ></FAQ>
     </div>
   )
 }

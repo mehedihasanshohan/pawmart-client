@@ -1,5 +1,9 @@
 import React from "react";
-import { FaSearch, FaHandshake, FaHome, FaStethoscope } from "react-icons/fa";
+import search from "/search.png";
+import medical from "/medical-team.png";
+import handshake from "/social-life.png";
+import home from "/house.png";
+
 
 export default function HowItWorks() {
 
@@ -7,24 +11,24 @@ export default function HowItWorks() {
     {
       title: "Search Your Best Friend",
       desc: "Browse our verified listings and find your perfect pet match with ease.",
-      icon: <FaSearch />,
+      icon: search,
       accent: "teal"
     },
     {
       title: "Medical & Safety Check",
       desc: "We ensure every pet is vaccinated and healthy before the meeting.",
-      icon: <FaStethoscope />,
+      icon: medical,
     },
     {
       title: "Bonding & Meeting",
       desc: "Connect with current owners and spend time getting to know your new friend.",
-      icon: <FaHandshake />,
+      icon: handshake,
       accent: "orange"
     },
     {
       title: "Adopt & Celebrate",
       desc: "Complete the simple process and welcome a new soul to your family.",
-      icon: <FaHome />,
+      icon: home,
       accent: "blue"
     },
 
@@ -37,15 +41,20 @@ export default function HowItWorks() {
           <h2 className="text-3xl font-bold mb-4">
             How It Works?
           </h2>
+          <p className="opacity-70 max-w-xl mx-auto italic">
+            Adopting a pet through Pawmart is simple and rewarding. Follow these easy steps to bring home your new best friend.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-4 border-dashed border-gray-300 z-0 -translate-y-12"></div>
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-4
+           border-dashed border-gray-300 z-0 -translate-y-12"></div>
 
           {steps.map((step, index) => (
             <div
               key={index}
               data-aos="fade-up"
-              className="relative z-10 group bg-base-100 p-10 rounded-3xl shadow- hover:shadow-md transition-all duration-500 border-b-8 border-transparent hover:border-teal-600"
+              className="relative z-10 group bg-base-100 p-10 rounded-3xl shadow-md
+               border-b-8 border-teal-600"
             >
               {/* Step Counter */}
               <div className="absolute -top-6 left-10 w-12 h-12 bg-slate-800 text-white rounded-xl flex items-center justify-center font-black text-xl shadow-xl group-hover:bg-teal-600 transition-colors">
@@ -53,9 +62,9 @@ export default function HowItWorks() {
               </div>
 
               {/* Icon Section */}
-              <div className="w-20 h-20 bg-base-200 rounded-3xl flex items-center justify-center text-4xl text-teal-600 mb-8 mt-4 group-hover:scale-110 transition-transform duration-500 shadow-inner">
-                {step.icon}
-              </div>
+              <img className="w-16 h-16 flex items-center justify-center text-teal-600 mb-8 mt-4 group-hover:scale-110 transition-transform duration-500 shadow-inner"
+                src= {step.icon}
+              />
 
               {/* Text Section */}
               <h3 className="text-xl font-bold mb-4">

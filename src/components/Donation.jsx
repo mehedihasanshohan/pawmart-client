@@ -1,10 +1,7 @@
-import { FaBone, FaSyringe, FaHome, FaHeart } from "react-icons/fa";
 import treat from "/pet-food.png";
 import health from "/veterinary1.png";
 import home from "/dog-house1.png";
-
-
-
+import { FaHeart } from "react-icons/fa";
 
 export default function Donation() {
 
@@ -38,8 +35,6 @@ export default function Donation() {
 
   return (
     <section className="py-24 bg-base-200 text-base-content relative overflow-hidden transition-colors duration-300">
-      <div className="absolute top-10 left-10 text-orange-200 dark:text-orange-900 text-9xl -rotate-12 opacity-30 select-none">🐾</div>
-      <div className="absolute bottom-10 right-10 text-orange-200 dark:text-orange-900 text-9xl rotate-12 opacity-30 select-none">🐾</div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
