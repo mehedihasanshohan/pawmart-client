@@ -5,6 +5,7 @@ import facebook from "/facebook.png";
 import github from "/github1.png";
 import location from "/map.png";
 import phone from "/mobile.png";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -54,32 +55,32 @@ const Footer = () => {
           </h3>
           <div class="grid grid-cols-2 gap-y-4">
             <ul class="space-y-3 font-semibold">
-              <li class="flex">
-                <span class="mr-2">—</span> About Us
-              </li>
-              <li class="flex">
-                <span class="mr-2">—</span> Our Services
-              </li>
-              <li class="flex">
-                <span class="mr-2">—</span> Shop
-              </li>
-              <li class="flex">
-                <span class="mr-2">—</span> Testimonials
-              </li>
+              <Link class="flex">
+                <span class="mr-2">—</span> Pet & Supplies
+              </Link>
+              <Link class="flex">
+                <span class="mr-2">— </span> Add Listing
+              </Link>
+              <Link class="flex">
+                <span class="mr-2">— </span> My Listings
+              </Link>
+              <Link class="flex">
+                <span class="mr-2">—</span> My Orders
+              </Link>
             </ul>
             <ul class="space-y-3 font-semibold">
-              <li class="flex">
-                <span class="mr-2">—</span> Accessories
-              </li>
-              <li class="flex">
-                <span class="mr-2">—</span> Care
-              </li>
-              <li class="flex">
-                <span class="mr-2">—</span> Clothing
-              </li>
-              <li class="flex">
+              <Link class="flex">
+                <span class="mr-2">—</span> Donate
+              </Link>
+              <Link class="flex">
+                <span class="mr-2">—</span> Care Centers
+              </Link>
+              <Link class="flex">
+                <span class="mr-2">—</span> Dashboard
+              </Link>
+              <Link class="flex">
                 <span class="mr-2">—</span> Decor
-              </li>
+              </Link>
             </ul>
           </div>
         </div>
@@ -89,7 +90,7 @@ const Footer = () => {
             Get In Touch
           </h3>
           <ul class="space-y-5">
-            <li class="flex items-start">
+            <Link class="flex items-start">
               <span class="text-teal-400 mr-4 text-xl">
                  <img
               src={location}
@@ -102,8 +103,8 @@ const Footer = () => {
                 <br />
                 Dhaka, Bangladesh
               </span>
-            </li>
-            <li class="flex items-center">
+            </Link>
+            <Link class="flex items-center">
               <span class="text-teal-400 mr-4 text-xl">
                  <img
               src={phone}
@@ -112,29 +113,29 @@ const Footer = () => {
             />
               </span>
               <span class="font-medium">+880177476798</span>
-            </li>
+            </Link>
           </ul>
 
           <div class="flex gap-3 mt-8">
             <img
               src={facebook}
               alt="Facebook"
-              className="w-12 h-12 cursor-pointer"
+              className="w-10 h-10 cursor-pointer"
             />
             <img
               src={linkedin}
               alt="LinkedIn"
-              className="w-12 h-12 cursor-pointer"
+              className="w-10 h-10 cursor-pointer"
             />
             <img
               src={gmail}
               alt="Gmail"
-              className="w-12 h-12 cursor-pointer"
+              className="w-10 h-10 cursor-pointer"
             />
             <img
               src={github}
               alt="Github"
-              className="w-12 h-12 cursor-pointer"
+              className="w-10 h-10 cursor-pointer"
             />{" "}
           </div>
         </div>

@@ -1,6 +1,9 @@
 import React from "react";
 import heart from "/heart.png";
-
+import hero1 from "/pethero1.avif";
+import hero2 from "/pethero2.jpeg";
+import hero3 from "/pethero3.jfif";
+import hero4 from "/pethero4.jfif";
 
 const Adopt = () => {
   const heroes = [
@@ -8,25 +11,25 @@ const Adopt = () => {
       id: 1,
       name: "Sahadot Ahmed",
       role: "Rescued 15+ stray cats in Dhaka",
-      img: "https://i.ibb.co.com/kg3PNDtX/t3.jpg",
+      img: hero1,
     },
     {
       id: 2,
-      name: "Nayeem Rahman",
+      name: "Nayeema Rahman",
       role: "Adopted 2 senior dogs this year",
-      img: "https://i.ibb.co.com/4DFK5tr/vets4.jpg",
+      img: hero2,
     },
     {
       id: 3,
       name: "Tanvir Islam",
       role: "Founder of 'Paws & Care' Shelter",
-      img: "https://i.ibb.co.com/xtXg8TNQ/vets1.jpg",
+      img: hero3,
     },
     {
       id: 4,
       name: "Arif Hossain",
       role: "Professional Pet Groomer & Rescuer",
-      img: "https://i.ibb.co.com/4DFK5tr/vets4.jpg",
+      img: hero4,
     },
   ];
 
@@ -74,7 +77,7 @@ const Adopt = () => {
                 <img
                   src={hero.img}
                   alt={hero.name}
-                  className="w-full h-48 mx-auto p-4 object-cover rounded-md"
+                  className="w-full h-48 mx-auto p-4 object-cover rounded-lg"
                 />
               </div>
               <h3 className="text-xl font-bold group-hover:text-teal-600 transition-colors">
