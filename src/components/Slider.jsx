@@ -37,7 +37,8 @@ const Slider = () => {
   ];
 
   return (
-    <div className='animate__animated animate__rollIn h-[450px] md:h-[550px] lg:h-[600px] w-full overflow-hidden rounded-xl'>
+    <section className='bg-base-200'>
+      <div className='animate__animated animate__rollIn h-[450px] md:h-[550px] lg:h-[600px] max-w-7xl mx-auto overflow-hidden rounded-md mb-16'>
       <div className="carousel carousel-vertical w-full h-full">
 
         {slides.map((slide) => (
@@ -56,7 +57,7 @@ const Slider = () => {
               <h2 className="text-3xl md:text-5xl lg:text-6xl text-slate-300 font-extrabold mb-4 leading-tight max-w-2xl">
                 {slide.title}
               </h2>
-              <p className="text-sm md:text-lg lg:text-xl max-w-lg mb-8 text-slate-400 leading-relaxed">
+              <p className="text-sm md:text-lg lg:text-xl max-w-lg mb-8 text-slate-300 leading-relaxed">
                 {slide.desc}
               </p>
 
@@ -73,15 +74,17 @@ const Slider = () => {
 
             {/* Navigation Arrows */}
             <div className="absolute inset-y-0 right-4 md:right-8 flex flex-col justify-center gap-4 z-10">
-              <a href={slide.prev} className="btn btn-circle btn-xs md:btn-sm bg-white/20 border-none text-white hover:bg-orange-500 transition-all">▲</a>
-              <div className="h-10 md:h-20 w-[2px] bg-white/30 mx-auto"></div>
-              <a href={slide.next} className="btn btn-circle btn-xs md:btn-sm bg-white/20 border-none text-white hover:bg-orange-500 transition-all">▼</a>
+              <a href={slide.prev} className="btn btn-circle btn-xs md:btn-sm bg-white/20 border-none text-white hover:bg-teal-600 transition-all">▲</a>
+              <div className="h-10 md:h-20 w-0.5 bg-white/30 mx-auto"></div>
+              <a href={slide.next} className="btn btn-circle btn-xs md:btn-sm bg-white/20 border-none text-white hover:bg-teal-600 transition-all">▼</a>
             </div>
           </div>
         ))}
 
       </div>
     </div>
+    </section>
+
   );
 };
 

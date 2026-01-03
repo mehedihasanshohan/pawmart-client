@@ -20,9 +20,11 @@ import { ToastContainer } from 'react-toastify';
 import MyOrders from './pages/MyOrders.jsx';
 import MyListings from './MyListings.jsx';
 import UpdateListing from './pages/UpdateListing.jsx';
-import AboutUs from './pages/AboutUs.jsx';
 import PetCare from './pages/PetCare.jsx';
-
+import AboutUs from './pages/AboutUs.jsx';
+import Contact from './pages/Contact.jsx';
+import Blog from './pages/Blog.jsx';
+import Privacy from './pages/Privacy.jsx';
 
 AOS.init({
   duration: 1000,
@@ -84,6 +86,18 @@ const router = createBrowserRouter([
       {
         path: '/about-us',
         element: <AboutUs></AboutUs>
+      },
+      {
+        path: '/contact',
+        element: <Contact></Contact>
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
+      },
+      {
+        path: '/privacy',
+        element: <Privacy></Privacy>
       }
 
 

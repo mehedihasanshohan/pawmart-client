@@ -3,3 +3,7 @@
    themes: light --default, dark --prefersdark;
  }
 
+.Toastify__progress-bar--success {
+  background: #0d9488 !important;
+}
+

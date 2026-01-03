@@ -9,134 +9,129 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer class="max-w-7xl mx-auto bg-base-100 text-base-content py-16 px-8 border-t">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer className="w-full bg-base-100 text-base-content py-16 px-8 border-t mt-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
-          <h3 class="text-xl font-bold tracking-widest mb-8 uppercase">
+          <h3 className="text-xl font-bold tracking-widest mb-8 uppercase">
             Our Gallery
           </h3>
-          <div class="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-2">
             <img
               src="https://i.ibb.co.com/gbHhSy5s/petscategory.jpg"
               alt="Pet"
-              class="w-full h-24 object-cover rounded"
+              className="w-full h-24 object-cover rounded"
             />
             <img
               src="https://i.ibb.co.com/Psz9LCTp/petfoodcategory.webp"
               alt="Pet"
-              class="w-full h-24 object-cover rounded"
+              className="w-full h-24 object-cover rounded"
             />
             <img
               src="https://i.ibb.co.com/wr7vBxBX/petAcces.jpg"
               alt="Pet"
-              class="w-full h-24 object-cover rounded"
+              className="w-full h-24 object-cover rounded"
             />
             <img
               src="https://i.ibb.co.com/TMBtcttf/petcare.jpg"
               alt="Pet"
-              class="w-full h-24 object-cover rounded"
+              className="w-full h-24 object-cover rounded"
             />
             <img
               src="https://i.ibb.co.com/gbHhSy5s/petscategory.jpg"
               alt="Pet"
-              class="w-full h-24 object-cover rounded"
+              className="w-full h-24 object-cover rounded"
             />
             <img
               src="https://i.ibb.co.com/TMBtcttf/petcare.jpg"
               alt="Pet"
-              class="w-full h-24 object-cover rounded"
+              className="w-full h-24 object-cover rounded"
             />
           </div>
         </div>
 
-        <div>
-          <h3 class="text-xl font-bold tracking-widest mb-8 uppercase">
+        <div className="md:pl-24">
+          <h3 className="text-xl font-bold tracking-widest mb-8 uppercase">
             Quick Links
           </h3>
-          <div class="grid grid-cols-2 gap-y-4">
-            <ul class="space-y-3 font-semibold">
-              <Link class="flex">
-                <span class="mr-2">—</span> Pet & Supplies
+          <div className="">
+            <ul className="space-y-3 font-semibold">
+              <Link className="flex" to="/">
+                <span className="mr-2 mt-1">—</span> Home
               </Link>
-              <Link class="flex">
-                <span class="mr-2">— </span> Add Listing
+              <Link className="flex" to="/addListing">
+                <span className="mr-2 mt-1">— </span> Add Listing
               </Link>
-              <Link class="flex">
-                <span class="mr-2">— </span> My Listings
+              <Link className="flex" to="/listings">
+                <span className="mr-2 mt-1">— </span> ALL Listings
               </Link>
-              <Link class="flex">
-                <span class="mr-2">—</span> My Orders
+               <Link className="flex" to="/donate">
+                <span className="mr-2 mt-1">—</span> Donate
               </Link>
-            </ul>
-            <ul class="space-y-3 font-semibold">
-              <Link class="flex">
-                <span class="mr-2">—</span> Donate
-              </Link>
-              <Link class="flex">
-                <span class="mr-2">—</span> Care Centers
-              </Link>
-              <Link class="flex">
-                <span class="mr-2">—</span> Dashboard
-              </Link>
-              <Link class="flex">
-                <span class="mr-2">—</span> Decor
+              <Link className="flex" to="/pet-care">
+                <span className="mr-2 mt-1">—</span> Care Centers
               </Link>
             </ul>
           </div>
         </div>
 
         <div>
-          <h3 class="text-xl font-bold tracking-widest mb-8 uppercase">
+          <h3 className="text-xl font-bold tracking-widest mb-8 uppercase">
             Get In Touch
           </h3>
-          <ul class="space-y-5">
-            <Link class="flex items-start">
-              <span class="text-teal-400 mr-4 text-xl">
-                 <img
-              src={location}
-              alt="Gmail"
-              className="w-12 h-12"
-            />
+          <ul className="space-y-5">
+            <Link className="flex items-start">
+              <span className="text-teal-400 mr-4 text-xl">
+                <img src={location} alt="Gmail" className="w-12 h-12" />
               </span>
-              <span class="font-semibold">
+              <span className="font-semibold">
                 Goalundo, Rajbari
                 <br />
                 Dhaka, Bangladesh
               </span>
             </Link>
-            <Link class="flex items-center">
-              <span class="text-teal-400 mr-4 text-xl">
-                 <img
-              src={phone}
-              alt="Gmail"
-              className="w-12 h-12"
-            />
+            <Link className="flex items-center">
+              <span className="text-teal-400 mr-4 text-xl">
+                <img src={phone} alt="Gmail" className="w-12 h-12" />
               </span>
-              <span class="font-medium">+880177476798</span>
+              <span className="font-medium">+880177476798</span>
             </Link>
           </ul>
 
-          <div class="flex gap-3 mt-8">
-            <img
-              src={facebook}
-              alt="Facebook"
-              className="w-10 h-10 cursor-pointer"
-            />
-            <img
-              src={linkedin}
-              alt="LinkedIn"
-              className="w-10 h-10 cursor-pointer"
-            />
-            <img
-              src={gmail}
-              alt="Gmail"
-              className="w-10 h-10 cursor-pointer"
-            />
-            <img
-              src={github}
-              alt="Github"
-              className="w-10 h-10 cursor-pointer"
-            />{" "}
+          <div className="flex gap-3 mt-8">
+            <a
+              href="https://www.facebook.com/profile.php?id=100007820023284"
+              target="_blank"
+            >
+              <img
+                src={facebook}
+                alt="Facebook"
+                className="w-10 h-10 cursor-pointer"
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/mehedihasanshohan/"
+              target="_blank"
+            >
+              <img
+                src={linkedin}
+                alt="LinkedIn"
+                className="w-10 h-10 cursor-pointer"
+              />
+            </a>
+            <a href="" target="_blank">
+              <img
+                src={gmail}
+                alt="Gmail"
+                className="w-10 h-10 cursor-pointer"
+              />
+            </a>
+            <a href='https://github.com/mehedihasanshohan' target='_blank'>
+              <img
+                src={github}
+                alt="Github"
+                className="w-10 h-10 cursor-pointer"
+              />{" "}
+            </a>
           </div>
         </div>
       </div>
