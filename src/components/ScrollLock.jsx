@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { ScrollStack, ScrollStackItem } from "./ScrollStack";
 
 const ScrollLock = () => {

@@ -34,7 +34,7 @@ const CategorySection = () => {
   };
 
   return (
-    <section className="py-16 bg-base-200">
+    <section className="py-16 bg-base-200 text-base-200">
       <div className="max-w-7xl mx-auto text-center px-4">
        <h2
         className="text-3xl font-bold text-center mb-4 items-center gap-2"

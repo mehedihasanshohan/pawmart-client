@@ -30,7 +30,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar sticky z-50 backdrop-blur-md top-0 bg-base-100 shadow-sm transition-all duration-300">
+    <div className="navbar sticky z-50 backdrop-blur-md top-0 bg-base-200 shadow-sm transition-all duration-300">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn lg:hidden">
@@ -55,7 +55,7 @@ const Navbar = () => {
         <div className='flex items-center justify-center gap-2'>
           <img src="https://i.ibb.co.com/ZRxFkpTv/dog-13748949.png" className='w-6 h-6 ml-2' alt="" />
           <Link to='/' className="text-3xl font-semibold ml-2">
-            <span className='text-orange-400'>pawmart</span>
+            <span className='text-teal-600 font-bold'>Pawmart</span>
           </Link>
         </div>
       </div>

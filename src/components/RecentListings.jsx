@@ -44,28 +44,28 @@ const RecentListings = () => {
         {recentListings.length === 0 ? (
           <p className="text-center text-lg">Loading listings...</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {recentListings.map((item) => (
               <div
                 data-aos="zoom-out"
                 key={item._id}
-                className=" rounded-2xl border-2 border-teal-200  shadow-sm  transition-all overflow-hidden group"
+                className=" rounded-md shadow-sm  transition-all overflow-hidden group"
               >
                 {/* Image Section */}
                 <div className="relative">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-60 object-cover group-hover:scale-102 transition-transform duration-500"
                   />
-                  <span className="absolute text-secondary bg-base-100 top-3 left-3 px-3 py-1 rounded-full text-sm font-medium shadow">
+                  <span className="absolute bg-base-100 top-3 left-3 px-3 py-1 rounded-full text-sm font-medium shadow">
                     {item.category}
                   </span>
                 </div>
 
                 {/* Content Section */}
                 <div className="p-5 space-y-3 text-left">
-                  <h3 className="text-xl font-semibold text-error transition">
+                  <h3 className="text-xl font-semibold transition">
                     {item.name}
                   </h3>
 
@@ -77,7 +77,7 @@ const RecentListings = () => {
                       <p>{item.Price}</p>
                     </div>
 
-                    <p className="text-primary text-sm flex items-center gap-1 font-semibold">
+                    <p className="text-sm flex items-center gap-1 font-semibold">
                       <span>
                         <MdLocationOn className="text-xl"></MdLocationOn>
                       </span>{" "}
@@ -89,7 +89,7 @@ const RecentListings = () => {
                     onClick={() =>
                       (window.location.href = `/listing/${item._id}`)
                     }
-                    className="w-full mt-4 cursor-pointer py-2.5 bg-accent hover:bg-info rounded-lg font-semibold transition"
+                    className="w-full mt-4 cursor-pointer py-2.5 rounded-md font-semibold transition"
                   >
                     See Details
                   </button>

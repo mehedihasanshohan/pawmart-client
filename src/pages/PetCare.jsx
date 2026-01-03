@@ -136,13 +136,13 @@ const PetCare = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="max-w-7xl mx-auto p-8 mt-4">
+    <div className="w-full bg-base-200">
+      <div className="max-w-7xl mx-auto text-base-content pt-12 pb-6">
         <div className="flex justify-center items-center">
           <form onSubmit={handleSearch}>
-            <div className="flex items-center gap-2 border-2 border-primary
-             p-2 rounded-lg shadow-lg bg-white">
-              <svg className="h-5 w-5 text-gray-400"
+            <div className="flex items-center gap-2 border-2 border-teal-600
+             p-2 rounded-lg shadow-lg">
+              <svg className="h-5 w-5"
               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
               fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -153,9 +153,9 @@ const PetCare = () => {
                 name="location"
                 required
                 placeholder="Search district (e.g. Dhaka)"
-                className="outline-none w-64 text-black"
+                className="outline-none w-64"
               />
-              <button type="submit" className="btn btn-primary btn-sm">Locate</button>
+              <button type="submit" className="btn bg-teal-400 btn-sm">Locate</button>
             </div>
           </form>
         </div>
@@ -182,9 +182,9 @@ const PetCare = () => {
             >
               <Popup>
                 <div className="p-1">
-                  <h3 className="font-bold text-lg text-primary">{center.district} Care Center</h3>
+                  <h3 className="font-bold text-lg text-teal-600">{center.district} Pet Care Center</h3>
                   <p className="text-sm"><b>Region:</b> {center.region}</p>
-                  <p className="text-xs mt-1"><b>Areas Covered:</b> {center.covered_area.join(", ")}</p>
+                  <p className="text-xs mt-1"><b>Pet-Care centers in:</b> {center.covered_area.join(", ")}</p>
                   <div className={`badge mt-2 ${center.status === 'active' ? 'badge-success' : 'badge-error'} text-white`}>
                     {center.status}
                   </div>
