@@ -8,6 +8,7 @@ import HowItWorks from './../components/HowItWorks';
 import FAQ from './../components/FAQ';
 import Donation from './../components/Donation';
 import SuccessStories from './../components/SuccessStories';
+import ScrollLock from '../components/ScrollLock'
 
 
 const Home = () => {

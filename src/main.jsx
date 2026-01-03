@@ -20,7 +20,9 @@ import { ToastContainer } from 'react-toastify';
 import MyOrders from './pages/MyOrders.jsx';
 import MyListings from './MyListings.jsx';
 import UpdateListing from './pages/UpdateListing.jsx';
-import PrivateRoute from './routes/PrivateRoute.jsx';
+import AboutUs from './pages/AboutUs.jsx';
+import PetCare from './pages/PetCare.jsx';
+
 
 AOS.init({
   duration: 1000,
@@ -51,9 +53,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/listing/:id",
-        element:  <PrivateRoute>
+        element:
                    <ListingDetails></ListingDetails>
-                  </PrivateRoute>
       },
       {
         path: "/listings",
@@ -74,6 +75,15 @@ const router = createBrowserRouter([
       {
         path: '/update-listing/:id',
         element: <UpdateListing></UpdateListing>
+      },
+      {
+        path: '/pet-care',
+        element: <PetCare></PetCare>,
+        loader: () => fetch('/data/carecenters.json').then(res => res.json())
+      },
+      {
+        path: '/about-us',
+        element: <AboutUs></AboutUs>
       }
 
 
