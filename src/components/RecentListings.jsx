@@ -35,7 +35,7 @@ const RecentListings = () => {
           <h2 className="text-3xl font-bold mb-4">
             Recent Listings
           </h2>
-          <p className=" max-w-xl mx-auto italic mb-8">
+          <p className=" max-w-xl mx-auto opacity-70 italic mb-8">
             Discover the latest adorable pets and pet care products recently
             added.
           </p>
@@ -44,40 +44,40 @@ const RecentListings = () => {
         {recentListings.length === 0 ? (
           <p className="text-center text-lg">Loading listings...</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {recentListings.map((item) => (
               <div
                 data-aos="zoom-out"
                 key={item._id}
-                className=" rounded-md shadow-sm  transition-all overflow-hidden group"
+                className=" rounded-md shadow-sm p-1 bg-base-100  transition-all overflow-hidden group"
               >
                 {/* Image Section */}
                 <div className="relative">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-60 object-cover group-hover:scale-102 transition-transform duration-500"
+                    className="w-full h-60 object-cover group-hover:scale-102 p-2  transition-transform duration-500"
                   />
-                  <span className="absolute bg-base-100 top-3 left-3 px-3 py-1 rounded-full text-sm font-medium shadow">
+                  <span className="absolute bg-base-100 top-3 left-3 px-3 py-1 rounded-md text-sm font-medium shadow">
                     {item.category}
                   </span>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-5 space-y-3 text-left">
-                  <h3 className="text-xl font-semibold transition">
+                <div className="p-2 space-y-3 text-left">
+                  <h3 className="text-lg font-semibold transition">
                     {item.name}
                   </h3>
 
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center text-lg text-info font-bold">
+                    <div className="flex items-center text-lg text-teal-600 font-bold">
                       <p>
                         <TbCurrencyTaka className="text-xl"></TbCurrencyTaka>
                       </p>
-                      <p>{item.Price}</p>
+                      <p className="">{item.Price}</p>
                     </div>
 
-                    <p className="text-sm flex items-center gap-1 font-semibold">
+                    <p className="text-sm flex items-center gap-1">
                       <span>
                         <MdLocationOn className="text-xl"></MdLocationOn>
                       </span>{" "}
@@ -89,7 +89,7 @@ const RecentListings = () => {
                     onClick={() =>
                       (window.location.href = `/listing/${item._id}`)
                     }
-                    className="w-full mt-4 cursor-pointer py-2.5 rounded-md font-semibold transition"
+                    className="w-full mt-1 cursor-pointer py-1 rounded-md font-semibold transition bg-base-300 hover:bg-teal-600"
                   >
                     See Details
                   </button>
