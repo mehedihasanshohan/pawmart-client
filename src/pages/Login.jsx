@@ -1,71 +1,80 @@
-import { useContext, useState } from 'react'
-import { BsEye, BsEyeSlash } from 'react-icons/bs'
-import { Link, useLocation, useNavigate } from 'react-router'
-import { toast } from 'react-toastify'
-import { AuthContext } from '../context/AuthContext'
+import { useContext, useState } from "react";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { Link, useLocation, useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
-  const { logInUser, signInWithGoogle } = useContext(AuthContext)
-  const [error, setError] = useState('')
-  const [success, setSuccess] = useState('')
-  const [showPassword, setShowPassword] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [email, setEmail] = useState('')
-  const navigate = useNavigate()
-  const location = useLocation()
+  const { logInUser, signInWithGoogle } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Toggle password visibility
   const handleTogglePasswordShow = (e) => {
-    e.preventDefault()
-    setShowPassword(!showPassword)
-  }
+    e.preventDefault();
+    setShowPassword(!showPassword);
+  };
 
   // Handle Google Sign-In
   const handleGoogleSignIn = async () => {
-    setError('')
-    setSuccess('')
-    setLoading(true)
+    setError("");
+    setSuccess("");
+    setLoading(true);
     try {
-      const result = await signInWithGoogle()
-      setSuccess(`Login successful! Welcome ${result.user.displayName || result.user.email}`)
-      toast.success(`Welcome ${result.user.displayName || result.user.email}`)
-      navigate(location.state?.from || '/')
+      const result = await signInWithGoogle();
+      setSuccess(
+        `Login successful! Welcome ${
+          result.user.displayName || result.user.email
+        }`
+      );
+      toast.success(`Welcome ${result.user.displayName || result.user.email}`);
+      navigate(location.state?.from || "/");
     } catch (err) {
-      setError(err.message)
+      setError(err.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   // Handle email/password login
   const handleLogin = async (e) => {
-    e.preventDefault()
-    setError('')
-    setSuccess('')
-    setLoading(true)
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+    setLoading(true);
 
-    const password = e.target.password.value
-    const emailInput = e.target.email.value.trim()
+    const password = e.target.password.value;
+    const emailInput = e.target.email.value.trim();
 
     // Optional: simple password validation
     if (password.length < 6) {
-      setError('Password must be at least 6 characters long.')
-      setLoading(false)
-      return
+      setError("Password must be at least 6 characters long.");
+      setLoading(false);
+      return;
     }
 
     try {
       // eslint-disable-next-line no-unused-vars
-      const result = await logInUser(emailInput, password)
-      setSuccess('Login successful!')
-      toast.success('Login successfully completed')
-      navigate(location.state?.from || '/')
+      const result = await logInUser(emailInput, password);
+      setSuccess("Login successful!");
+      toast.success("Login successfully completed");
+      navigate(location.state?.from || "/");
     } catch (err) {
-      setError(err.message)
+      setError(err.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
+
+  const handleDemoLogin = () => {
+    setEmail("user@demo.com");
+    document.querySelector('input[name="password"]').value = "123456Aa";
+  };
 
   return (
     <div className="animate__animated animate__bounceIn card bg-base-100 m-auto mt-16 mb-16 w-full max-w-sm shadow-2xl">
@@ -88,7 +97,7 @@ const Login = () => {
             <label className="label">Password</label>
             <div className="relative">
               <input
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 name="password"
                 autoComplete="off"
                 className="input"
@@ -111,16 +120,18 @@ const Login = () => {
               </Link>
             </div>
 
-            <button className="btn btn-info mt-4 w-full" disabled={loading}>
-              {loading ? 'Logging in...' : 'Login'}
+            <button className="btn mt-4 w-full" disabled={loading}>
+              {loading ? <span className="loading loading-spinner"></span> : "Login"}
             </button>
 
-            <div className="text-center font-semibold text-md mt-2"><p>or</p></div>
+            <div className="text-center font-semibold text-md mt-2">
+              <p>or</p>
+            </div>
 
             <button
               type="button"
               onClick={handleGoogleSignIn}
-              className="btn btn-accent w-full mt-2"
+              className="btn w-full mt-2"
               disabled={loading}
             >
               {/* You can add Google icon here */}
@@ -138,9 +149,19 @@ const Login = () => {
             Register
           </Link>
         </p>
+
+        <div>
+          <button
+            type="button"
+            onClick={handleDemoLogin}
+            className="btn btn-outline w-full mt-2"
+          >
+            Demo User Login (Auto-fill)
+          </button>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

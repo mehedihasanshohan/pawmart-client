@@ -120,16 +120,22 @@ const Navbar = () => {
             <NavLink to="/pet-care">Pet Care</NavLink>
           </li>
 
-{/* Hover Dropdown Menu */}
+          {/* Hover Dropdown Menu */}
           <li className="dropdown dropdown-hover group">
-            <div tabIndex={0} role="button"
-            className="flex items-center gap-1 group-hover:text-teal-600
-            transition-colors">
-              Pages <FaChevronDown className="text-[10px] mt-1 group-hover:rotate-180 transition-transform" />
+            <div
+              tabIndex={0}
+              role="button"
+              className="flex items-center gap-1 group-hover:text-teal-600
+            transition-colors"
+            >
+              Pages{" "}
+              <FaChevronDown className="text-[10px] mt-1 group-hover:rotate-180 transition-transform" />
             </div>
-            <ul tabIndex={0}
-            className="dropdown-content menu bg-base-100
-            rounded-box z-1 w-52 p-2 shadow-xl border border-teal-600/10">
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-base-100
+            rounded-box z-1 w-52 p-2 shadow-xl border border-teal-600/10"
+            >
               {extraLinks}
             </ul>
           </li>
@@ -137,13 +143,7 @@ const Navbar = () => {
           {user && (
             <div className="flex gap-6">
               <li>
-                <NavLink to="/addListing">Add Listing</NavLink>
-              </li>
-              <li>
-                <NavLink to="/mylistings">My Listings</NavLink>
-              </li>
-              <li>
-                <NavLink to="/myOrders">My Orders</NavLink>
+                <NavLink to="/dashboard">Dashboard</NavLink>
               </li>
             </div>
           )}

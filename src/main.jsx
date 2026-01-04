@@ -25,6 +25,7 @@ import AboutUs from './pages/AboutUs.jsx';
 import Contact from './pages/Contact.jsx';
 import Blog from './pages/Blog.jsx';
 import Privacy from './pages/Privacy.jsx';
+import DashBoardLayout from './Root/DahboardLayout.jsx';
 
 AOS.init({
   duration: 1000,
@@ -63,18 +64,6 @@ const router = createBrowserRouter([
         element: <AllListings></AllListings>,
       },
       {
-        path: '/addListing',
-        element: <AddListing></AddListing>
-      },
-      {
-        path: '/mylistings',
-        element: <MyListings></MyListings>
-      },
-      {
-        path: '/myOrders',
-        element: <MyOrders></MyOrders>
-      },
-      {
         path: '/update-listing/:id',
         element: <UpdateListing></UpdateListing>
       },
@@ -101,6 +90,29 @@ const router = createBrowserRouter([
       }
 
 
+    ]
+  },
+  {
+    path: "dashboard",
+    element:<DashBoardLayout></DashBoardLayout>,
+    children: [
+      {
+        path:  '',
+        element: <div className='text-center mt-20'>
+          <h2 className='text-3xl font-semibold'>Welcome to your Dashboard</h2></div>
+      },
+      {
+        path: 'addListing',
+        element: <AddListing></AddListing>
+      },
+      {
+        path: 'mylistings',
+        element: <MyListings></MyListings>
+      },
+      {
+        path: 'myOrders',
+        element: <MyOrders></MyOrders>
+      },
     ]
   }
 ]);

@@ -56,13 +56,11 @@ const Register = () => {
     if (!/\d/.test(password)) return setError('Password must contain at least one number.')
 
     try {
-      const result = await createUser(email, password)
-
-      //  Firebase v9 modular updateProfile
+      const result = await createUser(email, password);
       await updateProfile(result.user, {
         displayName: name,
         photoURL: photoURL
-      })
+      });
 
       setSuccess('Registration successful!')
       toast.success(`Welcome ${result.user.displayName}`)
