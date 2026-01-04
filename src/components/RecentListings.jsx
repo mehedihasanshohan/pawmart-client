@@ -44,7 +44,7 @@ const RecentListings = () => {
         {recentListings.length === 0 ? (
           <p className="text-center text-lg">Loading listings...</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {recentListings.map((item) => (
               <div
                 data-aos="zoom-out"
@@ -65,12 +65,12 @@ const RecentListings = () => {
 
                 {/* Content Section */}
                 <div className="p-2 space-y-3 text-left">
-                  <h3 className="text-lg font-semibold transition">
+                  <h3 className="text-lg  text-teal-600 font-semibold transition">
                     {item.name}
                   </h3>
 
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center text-lg text-teal-600 font-bold">
+                    <div className="flex items-center text-lg font-bold">
                       <p>
                         <TbCurrencyTaka className="text-xl"></TbCurrencyTaka>
                       </p>
@@ -82,6 +82,14 @@ const RecentListings = () => {
                         <MdLocationOn className="text-xl"></MdLocationOn>
                       </span>{" "}
                       {item.location}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="italic opacity-70">
+                      {item.description.length > 25
+                        ? item.description.substring(0, 25) + "..."
+                        : item.description}
                     </p>
                   </div>
 
