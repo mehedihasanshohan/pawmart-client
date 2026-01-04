@@ -27,6 +27,8 @@ import Blog from './pages/Blog.jsx';
 import Privacy from './pages/Privacy.jsx';
 import DashBoardLayout from './Root/DahboardLayout.jsx';
 import MyProfile from './Root/MyProfile.jsx';
+import MyCharts from './Root/MyCharts.jsx';
+
 
 AOS.init({
   duration: 1000,
@@ -117,6 +119,10 @@ const router = createBrowserRouter([
       {
         path: "my-profile",
         element: <MyProfile></MyProfile>
+      },
+      {
+        path: "my-charts",
+        element: <MyCharts></MyCharts>
       }
     ]
   }

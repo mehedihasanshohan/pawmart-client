@@ -102,12 +102,12 @@ const DashBoardLayout = () => {
               <NavLink
                 className="is-drawer-close:tooltip
                     is-drawer-close:tooltip-right"
-                data-tip="Leaderboard"
-                to="/dashboard/leaderboard"
+                data-tip="Charts"
+                to="/dashboard/my-charts"
               >
                 <HiOutlineTrophy className="w-6 h-6 mt-4 text-teal-600"></HiOutlineTrophy>
                 <span className="is-drawer-close:hidden mt-4 text-teal-600">
-                  Leaderboard
+                  Charts
                 </span>
               </NavLink>
             </li>

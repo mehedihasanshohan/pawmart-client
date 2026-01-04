@@ -72,8 +72,8 @@ const Login = () => {
   };
 
   const handleDemoLogin = () => {
-    setEmail("user@demo.com");
-    document.querySelector('input[name="password"]').value = "123456Aa";
+    setEmail("demo@user.com");
+    document.querySelector('input[name="password"]').value = "1234aA";
   };
 
   return (
