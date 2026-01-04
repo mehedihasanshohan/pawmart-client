@@ -26,6 +26,7 @@ import Contact from './pages/Contact.jsx';
 import Blog from './pages/Blog.jsx';
 import Privacy from './pages/Privacy.jsx';
 import DashBoardLayout from './Root/DahboardLayout.jsx';
+import MyProfile from './Root/MyProfile.jsx';
 
 AOS.init({
   duration: 1000,
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
         path: 'myOrders',
         element: <MyOrders></MyOrders>
       },
+      {
+        path: "my-profile",
+        element: <MyProfile></MyProfile>
+      }
     ]
   }
 ]);

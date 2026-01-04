@@ -105,9 +105,22 @@ const DashBoardLayout = () => {
                 data-tip="Leaderboard"
                 to="/dashboard/leaderboard"
               >
-                <HiOutlineTrophy className="w-6 h-6 mt-4 text-amber-400"></HiOutlineTrophy>
-                <span className="is-drawer-close:hidden mt-4 text-amber-400">
+                <HiOutlineTrophy className="w-6 h-6 mt-4 text-teal-600"></HiOutlineTrophy>
+                <span className="is-drawer-close:hidden mt-4 text-teal-600">
                   Leaderboard
+                </span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className="is-drawer-close:tooltip
+                    is-drawer-close:tooltip-right"
+                data-tip="My Profile"
+                to="/dashboard/my-profile"
+              >
+                <FaUser className="w-6 h-6 mt-4 text-teal-600"></FaUser>
+                <span className="is-drawer-close:hidden mt-4 text-teal-600">
+                  My Profile
                 </span>
               </NavLink>
             </li>

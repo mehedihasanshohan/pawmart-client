@@ -44,10 +44,11 @@ const Register = () => {
     setSuccess('')
     setLoading(true)
 
-    const name = e.target.name.value.trim()
-    const photoURL = e.target.photo.value.trim()
-    const email = e.target.email.value.trim()
-    const password = e.target.password.value
+    const form = e.target;
+    const name = form.name.value.trim();
+    const photoURL = form.photo.value.trim();
+    const email = form.email.value.trim();
+    const password = form.password.value;
 
     // Password validation
     if (password.length < 6) return setError('Password must be at least 6 characters long.')
@@ -64,8 +65,9 @@ const Register = () => {
 
       setSuccess('Registration successful!')
       toast.success(`Welcome ${result.user.displayName}`)
-      e.target.reset()
-      setLoading(false)
+      form.reset();
+
+      // setLoading(false)
       navigate('/')
     } catch (err) {
       setError(err.message)
